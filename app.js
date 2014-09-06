@@ -1,13 +1,14 @@
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var debug = require('debug')('wwwroot');
 var routes = require('./routes/index');
 var users = require('./routes/users');
-
+var campaigns = require('./apis/campaigns.js');
 var app = express();
 
 // view engine setup
@@ -22,8 +23,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//default gunnk
 app.use('/', routes);
 app.use('/users', users);
+//campaign apis
+app.use('/api/campaign', campaigns);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -57,4 +61,8 @@ app.use(function(err, req, res, next) {
 });
 
 
-module.exports = app;
+app.set('port', process.env.PORT || 3000);
+
+var server = app.listen(app.get('port'), function () {
+    debug('Express server listening on port ' + server.address().port);
+});

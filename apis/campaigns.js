@@ -8,23 +8,38 @@ var router = express.Router();
 /* Retrieve Campaign - GET /api/campaign */ 
 router.get('/', function (req, res) {
     
-    if (!req.query.campaign_id) {
-        return res.send(400, { message: 'Must specify campaign_id query parameter' });
-    }
+    
+    
     //connect to db
     data.dbConnectAndExecute(function (err) {
-
-        schemas.Campaign.findOne({ _id: req.query.campaign_id }, function (err, entity) {
         
-            if (err) {
+        if (req.query.campaign_id) {
+            schemas.Campaign.findOne({ _id: req.query.campaign_id }, function (err, entity) {
+                
+                if (err) {
+                    
+                    return res.send(500, 'DB Error occured ' + err);
             
-                return res.send(500, 'DB Error occured ' + err);
-            
-            }
-
-            return res.send(200, entity);
+                }
+                
+                return res.send(200, entity);
         
-        });
+            });
+        }
+        else {
+            
+            schemas.Campaign.find({ }, function (err, results) {
+                
+                if (err) {
+                    
+                    return res.send(500, 'DB Error occured ' + err);
+            
+                }
+                
+                return res.send(200, results);
+        
+            });
+        }
         
         
     });

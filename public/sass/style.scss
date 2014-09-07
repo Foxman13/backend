@@ -72,27 +72,31 @@ body{
 	-webkit-padding-start:0px;
 	margin-top:20px;
 	li{
-		height:60px;
+		
 		border-top:thin solid #efefef;
 		border-bottom:thin solid #efefef;
+		min-height:60px;
+	
 		.open-btn{
              transform: rotate(0deg);
              margin-top:15px;
-             -webkit-transition: 1s ease-in-out;
-    			-moz-transition: 1s ease-in-out;
-    			-o-transition: 1s ease-in-out;
-    			transition: 1s ease-in-out;
+             -webkit-transition: 0.5s ease-in-out;
+    			-moz-transition: 0.5s ease-in-out;
+    			-o-transition: 0.5s ease-in-out;
+    			transition: 0.5s ease-in-out;
 		}
 		.results-expanded{
-			height:0;
-			background-color:$light-gray;
-			-webkit-transition: 1s ease-in-out;
-    			-moz-transition: 1s ease-in-out;
-    			-o-transition: 1s ease-in-out;
-    			transition: 1s ease-in-out;
+			height:0px;
+
+			
+			-webkit-transition: 0.5s ease-in-out;
+    			-moz-transition: 0.5s ease-in-out;
+    			-o-transition: 0.5s ease-in-out;
+    			transition: 0.5s ease-in-out;
 		}
 		&.selected{
 
+ 			border:thin $light-gray solid;
 			.open-btn{
 				transform: rotate(90deg);
 				-webkit-transition: 1s ease-in-out;

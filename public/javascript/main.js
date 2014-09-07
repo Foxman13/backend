@@ -147,19 +147,38 @@ $(document).ready(function () {
 
     function initializeListItems()
     {
-    	var chartSourceGoal = new Goal(20, 0, {name: "hashtag", value: "hackdisrupt" }, "&#xe286", "twitter" );
-    	var chartSourceGoal2 = new Goal(20, 0, {name: "hashtag", value: "hackdisrupt" }, "&#xe286", "twitter" );
+    	var chartSourceGoal = new Goal(300, 0, {name: "hashtag", value: "techcrunch" }, "&#xe286", "twitter" );
         var chartOutput = new SubscriptionOutput( );
         chartOutput.name = 'Rocket';
         chartOutput.glyph = 'glyphicon glyphicon-send';
+        var chartOutput2 = new SubscriptionOutput();
+        chartOutput2.name = 'Fire';
+        chartOutput2.glyph = 'glyphicon glyphicon-fire';
         
- 		 var subchart = new CampaignChart({
+ 		 var chart1 = new CampaignChart({
         		parent: $($('.results-expanded')[1]),
-        		sourceGoals: [chartSourceGoal,chartSourceGoal2],
+        		sourceGoals: [chartSourceGoal],
         		outputs: []
     		});
-         subchart.addSubscriptionOutput(chartOutput);
-         listCharts.push(subchart);
+ 		 chart1.addSubscriptionOutput(chartOutput);
+ 		 chart1.addSubscriptionOutput(chartOutput2);
+
+ 		 listCharts.push(chart1);
+
+ 		 var chart2SourceGoal = new Goal(6000, 0, { name: "hashtag", value: "NFLSunday" }, "&#xe286", "twitter");
+ 		 var chart2SourceGoal2 = new Goal(2000, 0, { name: "hashtag", value: "SNF" }, "&#xe286", "twitter");
+ 		 var chart2Output = new SubscriptionOutput();
+ 		 chart2Output.name = 'SMS';
+ 		 chart2Output.glyph = 'glyphicon glyphicon-phone';
+
+ 		 var chart2 = new CampaignChart({
+ 		     parent: $($('.results-expanded')[1]),
+ 		     sourceGoals: [chart2SourceGoal, chart2SourceGoal2],
+ 		     outputs: []
+ 		 });
+ 		 chart2.addSubscriptionOutput(chart2Output);
+
+ 		 listCharts.push(chart2);
 
          listCharts.forEach(function (chart) {
              var randInterval = 1200 * Math.random() + 250;

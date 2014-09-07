@@ -14,16 +14,20 @@
         + '</div>';
 
         that.element = document.createElement("div");
-        that.element.innerHTML = toStaticHTML(campaignChartDom);
+        that.element.innerHTML = (campaignChartDom);
         that.element.className = "campaignChart";
 
         this.sourceGoals.forEach(that.pushSourceGoal, true);
         this.outputs.forEach(that.pushSubscriptionOutput, true);
-
-        that.parent.appendChild(that.element);
+        //appendTo($(that.parent),that.element)
+        console.log(that.element);
+        console.log($(that.element));
+        $(that.element).appendTo($(that.parent));
+        //$(that.parent).append(that.element);
     };
 
     this.pushSourceGoal = function (sourceGoal, update) {
+        console.log(sourceGoal)
         sourceGoal.parent = that.element.querySelector(".superProgress .surface");
         var thisBlock = new SourceBlock(sourceGoal);
         thisBlock.show();
@@ -31,7 +35,7 @@
         sourceGoal.uielement = thisBlock;
 
         if (!update)
-            this.sourceGoals.push(sourceGoal);
+            that.sourceGoals.push(sourceGoal);
     }
 
     this.pushSubscriptionOutput = function (subscriptionOutput, update) {
@@ -66,6 +70,16 @@
         })
     }
 
+    this.toStaticHTML = function(str){
+        if(Window['toStaticHTML'])
+        {
+            return(toStaticHTML(str));
+        }else{
+            return(str);
+        }
+
+    }
+
     this.initVisualTree();
 }
 
@@ -96,6 +110,15 @@ function SourceBlock(options) {
         this.currentProgress = progress.value;
     }
 
+     this.toStaticHTML = function(str){
+        if(Window['toStaticHTML'])
+        {
+            return(toStaticHTML(str));
+        }else{
+            return(str);
+        }
+
+    }
     this.initVisualTree = function () {
         var sourceBlockDom = '<progress value="0"></progress>'
         + '<div class="glyph"></div>'
@@ -106,7 +129,7 @@ function SourceBlock(options) {
 
 
         that.element = document.createElement("div");
-        that.element.innerHTML = toStaticHTML(sourceBlockDom);
+        that.element.innerHTML = (sourceBlockDom);
         that.element.className = "sourceBlock";
 
         var editables = that.element.querySelectorAll(".editable");
@@ -145,14 +168,23 @@ function OutBall(options) {
     this.deactivate = function () {
         that.element.className.replace(" active", "");
     }
+    this.toStaticHTML = function(str){
+        if(Window['toStaticHTML'])
+        {
+            return(toStaticHTML(str));
+        }else{
+            return(str);
+        }
+
+    }
 
     this.initVisualTree = function () {
         var outBallDom = '<div class="glyph">🐝</div>'
         that.element = document.createElement("div");
-        that.element.innerHTML = toStaticHTML(outBallDom);
+        that.element.innerHTML = (outBallDom);
         that.element.className = "ball";
 
-        that.parent.appendChild(that.element);
+        $(that.parent).append(that.element);
         that.show();
     }();
 

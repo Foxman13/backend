@@ -1,9 +1,11 @@
 $(document).ready(function(){
 	var goallist = [];
 	var subcriberlist = [];
-
-	var item = new CampaignChart($('.campaign-chart'));
-
+	var chart = new CampaignChart({ parent: $('.campaign-chart'), sourceGoals: [{
+            glyph: "/images/twitter.png",
+            filterValue: "HackDisrupt",
+            thresholdValue: "2500"
+        }], outputs: [] });
 	$('.input-list li').click(function(evt){
 		//add item to goallist
 		// add a new item to the middle

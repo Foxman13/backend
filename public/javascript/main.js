@@ -6,7 +6,23 @@ $(document).ready(function(){
 	var getCampaigns = function(){
 		
 		$.get( "/api/campaign", function( data ) {
-  			console.log("data")
+  			console.log('Data returned',data);
+
+  			//$( ".hello" ).clone().appendTo( ".goodbye" );
+  			var len = data.length;
+  			var html = $($('.results-list li')[0]).html();
+  			console.log(html)
+  			var newHtml ='';
+  			
+  			html = $($(html).find('h3.ctitle').text("FUCK")).html()
+  			
+  			$('.results-list').empty();
+  			for(var i=0;i<len;i++){
+  				newHtml +=html;
+  			}
+
+  			$($('.results-list')).append(newHtml);
+
 		})
 	}
 	getCampaigns();

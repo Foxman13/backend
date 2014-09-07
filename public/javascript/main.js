@@ -92,6 +92,9 @@ $(document).ready(function () {
     $('#save').click(function () {
         var des = $('#campaigndescription').val();
         var cname = $('#campaignname').val();
+
+        $('.campaign-item').hide();
+       $("html, body").animate({ scrollTop: 0 }, "slow");
         //for loop of goals that are selected
         var goallist = chart.getGoalList();
         //for loop of subs/notifications

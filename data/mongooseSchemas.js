@@ -27,7 +27,8 @@ var notificationSchema = mongoose.Schema({
         value: String
     }],
     type: String,
-    endpoint: String
+    endpoint: String,
+    continuous_messaging: Boolean
 });
 
 ///////
@@ -56,9 +57,11 @@ var sourceSchema = mongoose.Schema({
 //Represents relationship between campaign and data source
 var goalSchema = mongoose.Schema({
     name: String,
-    source: { type: mongoose.Schema.ObjectId, ref: 'source' },
+    source: String,
     count: Number,
+    goal_count:Number,
     isRunning: Boolean,
+    type: String,
     //these are the input values for the source should match Source.inputs
     inputs: [{
         name: String,

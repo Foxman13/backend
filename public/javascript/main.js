@@ -159,7 +159,13 @@ $(document).ready(function () {
         		outputs: []
     		});
          subchart.addSubscriptionOutput(chartOutput);
- 			 listCharts.push(subchart);
+         listCharts.push(subchart);
+
+         listCharts.forEach(function (chart) {
+             var randInterval = 1200 * Math.random() + 250;
+             setInterval(chart.updateToRandomValues, randInterval);
+        })
+      
     }
 
 

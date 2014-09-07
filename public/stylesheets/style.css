@@ -195,7 +195,7 @@ a.symbol:before {
 
 /* line 164, ../sass/_campaignchart.scss */
 .outBalls .ball.active {
-  background-color: yellow;
+  background-color: #f0bf08;
 }
 
 /* line 168, ../sass/_campaignchart.scss */

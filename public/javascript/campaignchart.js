@@ -48,11 +48,11 @@
             that.outputs.push(subscriptionOutput);
     }
 
-    this.updateToRandomValues = function () {
+    this.updateToRandomValues = function (speed) {
         var done = true;
         that.sourceGoals.forEach(function (sourceGoal) {
 
-            sourceGoal.uielement.setProgress(sourceGoal.uielement.getProgress() + Math.random() * 0.1);
+            sourceGoal.uielement.setProgress(sourceGoal.uielement.getProgress() + Math.random() * 0.02);
             done = done && (sourceGoal.uielement.getProgress() >= 1);
         })
 

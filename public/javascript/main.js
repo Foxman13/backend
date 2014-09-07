@@ -67,6 +67,11 @@ $(document).ready(function () {
 
     })
 
+    $('.clickAdvance').click(function () {
+        if (chart)
+            chart.updateToRandomValues();
+    })
+
     $('#save').click(function () {
         var des = $('#campaigndescription').val();
         var cname = $('#campaignname').val();

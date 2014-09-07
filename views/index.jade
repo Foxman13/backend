@@ -13,16 +13,16 @@ block content
       h2='Inputs'
      div(class='row')
       ul(class='input-list')
-       li
+       li(data-id='Twitter')
         
         span(class='symbol')!='&#xe286;'
         h3='Twitter'
         
-       li
+       li(data-id='Facebook')
         span(class='symbol')!='&#xe227;'
         h3='Facebook'
  
-       li
+       li(data-id='Stuff')
         span(class='symbol')!='&#xe227;'
         h3='Stuff'
     div(class='col-md-7 campaign')
@@ -36,16 +36,16 @@ block content
         h2(class='create-title')='Create a new Campaign'
        div(class='row campaign-item')
         h3='Name Campaign'
-        div(class='form-group')
-          input#CampaignName(class='form-control', type='text', name='campaignNameInput', placeholder='campaign name')
-        div(class='form-group')
-          input#CampaignDescription(class='form-control', type='text', name='campaignDescriptionInput', placeholder='description')="default stacey text"
-        button#submit(type='submit', class='submit btn btn-default') save
+        div#submit-campaign(class='form-group', name='newCampaign', action='/addnewcampaign', method='post')
+         h4='Campaign Name'
+         input#campaignname(class='form-control', type='text', name='campaignNameInput', placeholder='campaign name')
+         h4='Campaign Description'
+         input#campaigndescription(class='form-control', type='text', name='campaignDescriptionInput', placeholder='description')
+         button#save(type='submit', class='btn btn-default') save
        div(class='row')
         div#results
          hr
          h2(class='results-title')="Campaigns"
-        
           ul(class='results-list')
            li
             div(class="row")
@@ -69,21 +69,22 @@ block content
              div(class="col-md-2 result-info")
               icon(class='open-btn glyphicon glyphicon-chevron-right')
             div(class="row results-expanded")
+
     div(class='col-md-2')
+
      div(class="row title-output")
       h2='Output'
      div(class='row')
        ul(class='output-list')
-        li
+        li(data-id='SMS')
          icon(class='glyphicon glyphicon-phone')
          h3='Send an SMS'
-        li
+        li(data-id='Rocket')
          icon(class='glyphicon glyphicon-send')
          h3='Shoot a Rocket'
-        li
+        li(data-id='Fire')
          icon(class='glyphicon glyphicon-fire')
          h3='Light it on Fire'
-
 
 
 

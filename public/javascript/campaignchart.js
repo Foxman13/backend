@@ -5,6 +5,10 @@
     this.outputs = options.outputs ? options.outputs : [];
     this.element;
 
+    this.getGoalList = function () {
+        return this.sourceGoals;
+    }
+
     this.initVisualTree = function () {
         var campaignChartDom = '<div class="superProgress">'
         + '<div class="surface">'
@@ -17,21 +21,15 @@
         that.element.innerHTML = (campaignChartDom);
         that.element.className = "campaignChart";
 
-        this.sourceGoals.forEach(that.pushSourceGoal, true);
+        this.sourceGoals.forEach(that.addSourceGoal, true);
         this.outputs.forEach(that.pushSubscriptionOutput, true);
-        //appendTo($(that.parent),that.element)
-        console.log(that.element);
-        console.log($(that.element));
         $(that.element).appendTo($(that.parent));
-        //$(that.parent).append(that.element);
     };
 
-    this.pushSourceGoal = function (sourceGoal, update) {
-
+    this.addSourceGoal = function (sourceGoal, update) {
         sourceGoal.parent = that.element.querySelector(".superProgress .surface");
         var thisBlock = new SourceBlock(sourceGoal);
         thisBlock.show();
-
         sourceGoal.uielement = thisBlock;
 
         if (!update)
@@ -50,9 +48,9 @@
     this.updateToRandomValues = function () {
         var done = true;
         that.sourceGoals.forEach(function (sourceGoal) {
-            sourceGoal.uielement.setProgress(Math.random() * 0.1);
 
-            done = done && (sourceGoal.uielement.currentProgress >= 1);
+            sourceGoal.uielement.setProgress(sourceGoal.uielement.getProgress() + Math.random() * 0.1);
+            done = done && (sourceGoal.uielement.getProgress() >= 1);
         })
 
         if (done) {
@@ -70,12 +68,11 @@
         })
     }
 
-    this.toStaticHTML = function(str){
-        if(Window['toStaticHTML'])
-        {
-            return(toStaticHTML(str));
-        }else{
-            return(str);
+    this.toStaticHTML = function (str) {
+        if (Window['toStaticHTML']) {
+            return (toStaticHTML(str));
+        } else {
+            return (str);
         }
 
     }
@@ -83,14 +80,12 @@
     this.initVisualTree();
 }
 
-function SourceBlock(options) {
+function SourceBlock(goal) {
     var that = this;
-    this.glyph = options.glyph ? options.glyph : "";
-    this.filterValue = options.filterValue ? options.filterValue : "";
-    this.thresholdValue = options.thresholdValue ? options.thresholdValue : "";
-    this.parent = options.parent ? options.parent : null;
+    this.goal = goal ? goal : new Goal();
+    this.glyph = goal.source ? goal.source : "/images/twitter.png";
+    this.parent = goal.parent ? goal.parent : null;
     this.element = document.createElement("div");
-    this.currentProgress = 0;
 
     this.show = function () {
         setTimeout(function () {
@@ -108,25 +103,31 @@ function SourceBlock(options) {
 
     this.setProgress = function (value) {
         var progress = that.element.querySelector("progress");
-        progress.value += value;
-        this.currentProgress = progress.value;
+        progress.value = value;
+        this.goal.current_goal_count = value;
     }
 
-     this.toStaticHTML = function(str){
-        if(Window['toStaticHTML'])
-        {
-            return(toStaticHTML(str));
-        }else{
-            return(str);
+    this.getProgress = function () {
+        var progress = that.element.querySelector("progress");
+        return progress.value;
+    }
+
+
+    this.toStaticHTML = function (str) {
+        if (Window['toStaticHTML']) {
+            return (toStaticHTML(str));
+        } else {
+            return (str);
         }
 
     }
     this.initVisualTree = function () {
-        var sourceBlockDom = '<progress value="0"></progress>'
-        + '<div class="glyph"></div>'
+        var sourceBlockDom = '<progress value="' + that.goal.current_goal_count + '"></progress>'
+        + '<div class="glyph">' + that.goal.source + '</div>'
         + '<div class="srcText">'
-        + '     <div><span>#</span><span class="editable">' + that.filterValue + '</span></div>'
-        + '     <div><span class="editable">' + that.thresholdValue + '</span><span> tweets</span></div>'
+        + '     <div><span>Goal: </span><span class="editable">' + that.goal.inputs.name + '</span></div>'
+        + '     <div><span>#</span><span class="editable">' + that.goal.inputs.value + '</span></div>'
+        + '     <div><span class="editable">' + that.goal + '</span><span> tweets</span></div>'
         + '  </div>';
 
 
@@ -172,12 +173,11 @@ function OutBall(options) {
     this.deactivate = function () {
         that.element.className.replace(" active", "");
     }
-    this.toStaticHTML = function(str){
-        if(Window['toStaticHTML'])
-        {
-            return(toStaticHTML(str));
-        }else{
-            return(str);
+    this.toStaticHTML = function (str) {
+        if (Window['toStaticHTML']) {
+            return (toStaticHTML(str));
+        } else {
+            return (str);
         }
 
     }
@@ -195,6 +195,15 @@ function OutBall(options) {
 }
 
 
+function Goal(goal_count, current_goal_count, inputs, source, name, continuous_messaging) {
+    this.goal_count = goal_count ? goal_count : 100;
+    this.current_goal_count = current_goal_count ? current_goal_count : 0;
+    this.inputs = inputs ? inputs : { name: "hashtag", value: "#threshold" };
+    this.source = source ? source : "";
+    this.name = name ? name : new Date().getTime() + "__GOAL";
+    this.continuous_messaging = continuous_messaging ? continuous_messaging : true;
+}
+
 function init() {
     var chartHost = document.querySelector(".chartHost");
     var chart = new CampaignChart({ parent: chartHost, sourceGoals: [], outputs: [] });
@@ -205,25 +214,25 @@ function init() {
 
     var addButton = document.getElementById("addButton");
     addButton.addEventListener("click", function () {
-        chart.pushSourceGoal({
+        chart.addSourceGoal({
             glyph: "/images/twitter.png",
             filterValue: "HackDisrupt",
             thresholdValue: "2500"
         });
 
-        chart2.pushSourceGoal({
+        chart2.addSourceGoal({
             glyph: "/images/twitter.png",
             filterValue: "HackDisrupt",
             thresholdValue: "2500"
         });
 
-        chart3.pushSourceGoal({
+        chart3.addSourceGoal({
             glyph: "/images/twitter.png",
             filterValue: "HackDisrupt",
             thresholdValue: "2500"
         });
 
-        chart4.pushSourceGoal({
+        chart4.addSourceGoal({
             glyph: "/images/twitter.png",
             filterValue: "HackDisrupt",
             thresholdValue: "2500"

@@ -147,7 +147,7 @@ $(document).ready(function () {
 
     function initializeListItems()
     {
-    	var chartSourceGoal = new Goal(300, 0, {name: "hashtag", value: "techcrunch" }, "&#xe286", "twitter" );
+    	var chartSourceGoal = new Goal(300, 0, {name: "TC Buzz", value: "techcrunch" }, "&#xe286", "twitter" );
         var chartOutput = new SubscriptionOutput( );
         chartOutput.name = 'Rocket';
         chartOutput.glyph = 'glyphicon glyphicon-send';
@@ -179,6 +179,22 @@ $(document).ready(function () {
  		 chart2.addSubscriptionOutput(chart2Output);
 
  		 listCharts.push(chart2);
+
+
+
+ 		 var chart3SourceGoal = new Goal(6000, 0, { name: "IOT", value: "IoT" }, "&#xe410", "bing");
+ 		 var chart3Output = new SubscriptionOutput();
+ 		 chart3Output.name = 'SMS';
+ 		 chart3Output.glyph = 'glyphicon glyphicon-phone';
+
+ 		 var chart3 = new CampaignChart({
+ 		     parent: $($('.results-expanded')[1]),
+ 		     sourceGoals: [chart3SourceGoal],
+ 		     outputs: []
+ 		 });
+ 		 chart3.addSubscriptionOutput(chart3Output);
+
+ 		 listCharts.push(chart3);
 
          listCharts.forEach(function (chart) {
              var randInterval = 1200 * Math.random() + 250;

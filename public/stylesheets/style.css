@@ -6,17 +6,33 @@
 /* line 6, ../sass/style.scss */
 body {
   font-family: "Roboto", sans-serif;
+  margin-top: 0px;
 }
 
-/* line 12, ../sass/style.scss */
+/* line 13, ../sass/style.scss */
+header {
+  background-color: #00aaaf;
+  height: 200px;
+}
+/* line 16, ../sass/style.scss */
+header h1 {
+  margin: 0px;
+  color: #fff;
+  text-align: center;
+  font-size: 48px;
+  line-height: 200px;
+}
+
+/* line 26, ../sass/style.scss */
 .input-list {
   list-style-type: none;
   margin: 0px;
   -webkit-padding-start: 0px;
   width: 80%;
 }
-/* line 18, ../sass/style.scss */
+/* line 32, ../sass/style.scss */
 .input-list li {
+  cursor: pointer;
   text-transform: uppercase;
   font-size: 16px;
   color: #a3a3a4;
@@ -28,9 +44,29 @@ body {
   height: 72px;
   margin-bottom: 5px;
 }
-/* line 28, ../sass/style.scss */
+/* line 34, ../sass/style.scss */
+.input-list li span {
+  display: block;
+  width: 50px;
+  font-size: 48px;
+  background-color: #a3a3a4;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+  float: left;
+  color: #fff;
+  text-align: center;
+  height: 60px;
+  line-height: 60px;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+/* line 57, ../sass/style.scss */
 .input-list li h3 {
   text-align: center;
   line-height: 72px;
   margin: 0px;
+  float: left;
+  text-indent: 5px;
 }

@@ -2,6 +2,8 @@ $(document).ready(function(){
 	var goallist = [];
 	var subcriberlist = [];
 
+	var item = new CampaignChart($('.campaign-chart'));
+
 	$('.input-list li').click(function(evt){
 		//add item to goallist
 		// add a new item to the middle

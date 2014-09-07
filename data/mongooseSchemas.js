@@ -6,7 +6,15 @@ var connectionString = process.env.MongodbConnectionString;
 mongoose.connect(connectionString);
 
 mongoose.connection.on('error', function (err) {
-    console.log('Error! - ' + err);
+    console.log('Error! - ' + err);43
+});
+
+/////////////////////////
+//Describes a type of notification we support
+////////////////////////
+var notificationTypeSchema = mongoose.Schema({
+    //API to long poll the subscription
+    type: String,
 });
 
 ////////////
@@ -14,9 +22,12 @@ mongoose.connection.on('error', function (err) {
 ////////////
 var notificationSchema = mongoose.Schema({
     //API to long poll the subscription
+    inputs: [{
+        name: String,
+        value: String
+    }],
     type: String,
-    longPollEndpoint: String,
-    realTimeEndpoint: String
+    endpoint: String
 });
 
 ///////
@@ -47,11 +58,13 @@ var goalSchema = mongoose.Schema({
     name: String,
     source: { type: mongoose.Schema.ObjectId, ref: 'source' },
     count: Number,
+    isRunning: Boolean,
     //these are the input values for the source should match Source.inputs
     inputs: [{
         name: String,
         value: String
-    }]
+    }],
+    lastTaskMessage : String
 });
 
 ////
@@ -69,8 +82,11 @@ var campaignSchema = mongoose.Schema({
 //THESE REPRESENT THE MONGODB COLLECTIONS. THESE ENTITIES ARE INDPENDENT
 var Campaign = mongoose.model('Campaign', campaignSchema)
 var Source = mongoose.model('Source', sourceSchema);
-var Notification = mongoose.model('Notification', sourceSchema);
+var NotificationType = mongoose.model('NotificationType', notificationTypeSchema);
+var Notification = mongoose.model('Notification', notificationSchema);
+var Subscription = mongoose.model('Subscription', subscriptionSchema);
 
 exports.Campaign = Campaign;
 exports.Source = Source;
-exports.Notification = Notification;
+exports.NotificationType = NotificationType;
+exports.Subscription = Subscription;

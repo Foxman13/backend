@@ -6,11 +6,12 @@ block content
   div(class ='container')
    div(class='row')
     header(class='clickAdvance')
-     h1="Notifly"
+     div(class='header-image')
+      img(src='/assets/Notifly_resized01.png')
    div(class='row')
     div(class='col-md-2')
      div(class='row title-inputs')
-      h2='Inputs'
+      h2='Feeds'
      div(class='row')
       ul(class='input-list')
        li(data-id='Twitter')
@@ -49,7 +50,8 @@ block content
          h4='Campaign Name'
          input#campaignname(class='form-control', type='text', name='campaignNameInput', placeholder='campaign name')
          h4='Campaign Description'
-         input#campaigndescription(class='form-control', type='text', name='campaignDescriptionInput', placeholder='description')  
+         input#campaigndescription(class='form-control', type='text', name='campaignDescriptionInput', placeholder='description')
+        div(class='add-chart')='Add an Input'
         div(class='campaign-chart')
         button#save(type='submit', class='submit btn btn-default') save
        div(class='row')
@@ -83,7 +85,7 @@ block content
     div(class='col-md-3')
 
      div(class="row title-output")
-      h2='Output'
+      h2='Actions'
      div(class='row')
        ul(class='output-list')
         li(data-id='SMS')
@@ -92,7 +94,7 @@ block content
         li(data-id='Rocket')
          icon(class='glyphicon glyphicon-send')
          h3='Shoot a Rocket'
-        li(data-id='Fire')
+        li(data-id='Meter')
          icon(class='glyphicon glyphicon-fire')
          h3='Start Fireplace'
         li(data-id='Gauge')

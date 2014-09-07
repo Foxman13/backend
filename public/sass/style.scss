@@ -20,7 +20,7 @@ body{
 }
 
 .goal-txt{
-	font-size:32px;
+	font-size:18px;
 	
 	color:$dark-gray;
 	font-weight:300;
@@ -31,6 +31,8 @@ body{
 	margin:0px;
 
 }
+
+
 
 .heavy{
 	font-weight:700;
@@ -174,7 +176,7 @@ body{
 
 header{
 
-	background-color:$turq;
+	background-color:#00aeef;
 	h1{
 		margin:0px;
 		color:#fff;
@@ -183,6 +185,20 @@ header{
 		line-height:200px;
 	}
 	height:200px;
+	.header-image{
+		width:300px;
+		height:182px;
+		margin:20px auto;
+
+	}
+	
+}
+
+.add-chart{
+	font-size:32px;
+	color:$dark-gray;
+	text-align:center;
+	font-weight:300;
 }
 .title-inputs{
 	/*background-color:$yellow;*/

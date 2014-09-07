@@ -23,6 +23,14 @@ block content
         h3='Stuff'
     div(class='col-md-6 campaign')
      h2='Campaign'
+       button(class='btn btn-default btn-lg')
+         icon(class='glyphicon glyphicon-plus')
+       h3='Name Campaign'
+       div(class='form-group')
+         input#CampaignName(class='form-control', type='text', name='campaignNameInput', placeholder='campaign name')
+       div(class='form-group')
+         input#CampaignDescription(class='form-control', type='text', name='campaignDescriptionInput', placeholder='description')
+       button#submit(type='submit', class='btn btn-default') submit
     div(class='col-md-3')
      h2='Output'
      div(class='col-md-4')

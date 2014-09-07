@@ -33,7 +33,7 @@ $(document).ready(function () {
     });
 
     $('.input-list li').click(function (evt) {
-        var chartSourceGoal = new Goal();
+        var chartSourceGoal = new Goal(20, 0, {name: "hashtag", value: "hackdisrupt" }, "&#xe286", "twitter" );
         chart.addSourceGoal(chartSourceGoal);
         //goallist.push(goaln);
         //console.log(goaln);
@@ -67,6 +67,11 @@ $(document).ready(function () {
 
     })
 
+    $('.clickAdvance').click(function () {
+        if (chart)
+            chart.updateToRandomValues();
+    })
+
     $('#save').click(function () {
         var des = $('#campaigndescription').val();
         var cname = $('#campaignname').val();
@@ -80,6 +85,8 @@ $(document).ready(function () {
         //add item to goallist
         // add a new item to the middle
 
+
+/*
         var tempName = new Date().getTime() + "__GOAL";
         var goal = {
             goal_count: 20,
@@ -90,6 +97,7 @@ $(document).ready(function () {
         }
 
 
+*/
 
 
 

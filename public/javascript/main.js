@@ -219,6 +219,23 @@ $(document).ready(function () {
                 }
             });
             **/
+        var chartSourceGoal = new Goal(300, 0, {name: "TC Hackathon", value: "hackdisrupt" }, "&#xe286", "twitter" );
+        var chartOutput = new SubscriptionOutput( );
+        chartOutput.name = 'Rocket';
+        chartOutput.glyph = 'glyphicon glyphicon-send';
+        var chartOutput2 = new SubscriptionOutput();
+        chartOutput2.name = 'Gauge';
+        chartOutput2.glyph = 'glyphicon glyphicon-dashboard';
+        
+ 		 var chart1 = new CampaignChart({
+        		parent: $($('.results-expanded')[1]),
+        		sourceGoals: [chartSourceGoal],
+        		outputs: []
+    		});
+ 		 chart1.addSubscriptionOutput(chartOutput);
+ 		 chart1.addSubscriptionOutput(chartOutput2);
+
+ 		 listCharts.unshift(chart1);
         }
     })
 

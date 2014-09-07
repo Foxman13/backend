@@ -18,11 +18,11 @@ block content
         span(class='symbol')!='&#xe286;'
         h3='Twitter'
         
-       li
+       li(data-id='Facebook')
         span(class='symbol')!='&#xe227;'
         h3='Facebook'
  
-       li
+       li(data-id='Stuff')
         span(class='symbol')!='&#xe227;'
         h3='Stuff'
     div(class='col-md-6 campaign')
@@ -42,18 +42,36 @@ block content
          h4='Campaign Description'
          input#campaigndescription(class='form-control', type='text', name='campaignDescriptionInput', placeholder='description')
          button#save(type='submit', class='btn btn-default') save
+       div(class='row')
+        div#results
+         h2(class='results-title')="Campaigns" 
+          ul(class='results-list')
+           li
+            div(class="row")
+             div(class="col-md-5")
+              h3='Campaign Title'
+             div(class="col-md-3 result-status")
+              h3='Active'
+             div(class="col-md-2 result-info")
+              h3='Shit'
+             div(class="col-md-2 result-info")
+              icon(class='open-btn glyphicon glyphicon-chevron-right')
+            div(class="row results-expanded")
     div(class='col-md-3')
      div(class="row title-output")
       h2='Output'
-     div(class='col-md-4')
-      div(class='row')
+     div(class='row')
        ul(class='output-list')
-        li
-         h3='Custom'
-        li
-         h3='Things'
-        li
-         h3='Base'
+        li(data-id='SMS')
+         icon(class='glyphicon glyphicon-phone')
+         h3='Send an SMS'
+        li(data-id='Rocket')
+         icon(class='glyphicon glyphicon-send')
+         h3='Shoot a Rocket'
+        li(data-id='Fire')
+         icon(class='glyphicon glyphicon-fire')
+         h3='Light it on Fire'
+
 
 
 

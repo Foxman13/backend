@@ -36,20 +36,26 @@ body {
   margin-top: 0px;
 }
 
-/* line 15, ../sass/style.scss */
+/* line 14, ../sass/style.scss */
+.container {
+  min-height: 650px;
+  height: 100%;
+}
+
+/* line 23, ../sass/style.scss */
 .campaign h3, .campaign h2 {
   color: #a3a3a4;
 }
-/* line 18, ../sass/style.scss */
+/* line 26, ../sass/style.scss */
 .campaign button {
   float: left;
   margin-top: 18px;
 }
-/* line 20, ../sass/style.scss */
+/* line 28, ../sass/style.scss */
 .campaign button.btn-default {
   color: #a3a3a4;
 }
-/* line 27, ../sass/style.scss */
+/* line 35, ../sass/style.scss */
 .campaign h2.create-title {
   color: #a3a3a4;
   float: left;
@@ -58,12 +64,12 @@ body {
   font-size: 18px;
   line-height: 40px;
 }
-/* line 38, ../sass/style.scss */
+/* line 44, ../sass/style.scss */
 .campaign h3 {
   text-transform: uppercase;
   font-size: 18px;
 }
-/* line 45, ../sass/style.scss */
+/* line 51, ../sass/style.scss */
 .campaign button.submit {
   height: 50px;
   width: 200px;
@@ -74,22 +80,81 @@ body {
   font-weight: 700;
   border: none;
 }
-/* line 55, ../sass/style.scss */
+/* line 61, ../sass/style.scss */
 .campaign button.submit:hover {
   background-color: #f0bf08;
 }
 
-/* line 63, ../sass/style.scss */
+/* line 69, ../sass/style.scss */
+.results-list {
+  list-style-type: none;
+  -webkit-padding-start: 0px;
+  margin-top: 20px;
+}
+/* line 74, ../sass/style.scss */
+.results-list li {
+  height: 60px;
+  border-top: thin solid #efefef;
+  border-bottom: thin solid #efefef;
+}
+/* line 78, ../sass/style.scss */
+.results-list li .open-btn {
+  transform: rotate(0deg);
+  margin-top: 15px;
+  -webkit-transition: 1s ease-in-out;
+  -moz-transition: 1s ease-in-out;
+  -o-transition: 1s ease-in-out;
+  transition: 1s ease-in-out;
+}
+/* line 86, ../sass/style.scss */
+.results-list li .results-expanded {
+  height: 0;
+  background-color: #efefef;
+  -webkit-transition: 1s ease-in-out;
+  -moz-transition: 1s ease-in-out;
+  -o-transition: 1s ease-in-out;
+  transition: 1s ease-in-out;
+}
+/* line 96, ../sass/style.scss */
+.results-list li.selected .open-btn {
+  transform: rotate(90deg);
+  -webkit-transition: 1s ease-in-out;
+  -moz-transition: 1s ease-in-out;
+  -o-transition: 1s ease-in-out;
+  transition: 1s ease-in-out;
+}
+/* line 104, ../sass/style.scss */
+.results-list li.selected .results-expanded {
+  height: 400px;
+  -webkit-transition: 1s ease-in-out;
+  -moz-transition: 1s ease-in-out;
+  -o-transition: 1s ease-in-out;
+  transition: 1s ease-in-out;
+}
+
+/* line 115, ../sass/style.scss */
+.results-title {
+  font-weight: 300;
+  margin-bottom: 18px;
+  font-size: 24px;
+}
+
+/* line 124, ../sass/style.scss */
+.form-control {
+  height: 55px;
+}
+
+/* line 127, ../sass/style.scss */
 .campaign-item {
   display: none;
 }
 
-/* line 68, ../sass/style.scss */
+/* line 132, ../sass/style.scss */
 header {
-  background-color: #00aaaf;
+  background-color: #0D54FF;
   height: 200px;
 }
-/* line 71, ../sass/style.scss */
+/* line 135, ../sass/style.scss */
 header h1 {
   margin: 0px;
   color: #fff;
@@ -98,57 +163,57 @@ header h1 {
   line-height: 200px;
 }
 
-/* line 80, ../sass/style.scss */
+/* line 144, ../sass/style.scss */
 .title-inputs {
-  background-color: #f0bf08;
+  /*background-color:$yellow;*/
   height: 75px;
   border-right: thin white solid;
   border-top: thin white solid;
 }
-/* line 85, ../sass/style.scss */
+/* line 150, ../sass/style.scss */
 .title-inputs h2 {
-  color: #fff;
+  color: #a3a3a4;
   text-align: center;
-  text-transform: uppercase;
-  font-size: 24px;
+  font-size: 30px;
+  font-weight: 300;
 }
 
-/* line 93, ../sass/style.scss */
+/* line 158, ../sass/style.scss */
 .title-output {
-  background-color: #b21e8d;
+  /*background-color:$pink;*/
   height: 75px;
   border-top: thin white solid;
 }
-/* line 98, ../sass/style.scss */
+/* line 164, ../sass/style.scss */
 .title-output h2 {
-  color: #fff;
+  color: #a3a3a4;
+  font-size: 30px;
   text-align: center;
-  text-transform: uppercase;
-  font-size: 24px;
+  font-weight: 300;
 }
 
-/* line 106, ../sass/style.scss */
+/* line 172, ../sass/style.scss */
 .title-campaign {
   border-right: thin white solid;
   border-top: thin white solid;
-  background-color: #084ca1;
+  /*background-color:$blue;*/
   height: 75px;
 }
-/* line 112, ../sass/style.scss */
+/* line 178, ../sass/style.scss */
 .title-campaign h2 {
-  color: #fff;
+  color: #a3a3a4;
   text-align: center;
-  text-transform: uppercase;
-  font-size: 24px;
+  font-weight: 300;
+  font-size: 30px;
 }
 
-/* line 119, ../sass/style.scss */
+/* line 185, ../sass/style.scss */
 .input-list {
   list-style-type: none;
   margin: 0px;
   -webkit-padding-start: 0px;
 }
-/* line 125, ../sass/style.scss */
+/* line 191, ../sass/style.scss */
 .input-list li {
   cursor: pointer;
   text-transform: uppercase;
@@ -158,12 +223,12 @@ header h1 {
   margin-bottom: 5px;
   border-bottom: thin solid #efefef;
 }
-/* line 134, ../sass/style.scss */
+/* line 200, ../sass/style.scss */
 .input-list li:hover {
   background-color: #084ca1;
   color: #fff;
 }
-/* line 138, ../sass/style.scss */
+/* line 204, ../sass/style.scss */
 .input-list li span {
   font-size: 24px;
   width: 25px;
@@ -171,7 +236,7 @@ header h1 {
   margin-top: 22px;
   margin-left: 10px;
 }
-/* line 146, ../sass/style.scss */
+/* line 212, ../sass/style.scss */
 .input-list li h3 {
   text-align: center;
   line-height: 75px;
@@ -181,12 +246,50 @@ header h1 {
   text-indent: 5px;
 }
 
-/* line 160, ../sass/style.scss */
+/* line 225, ../sass/style.scss */
+.output-list {
+  list-style-type: none;
+  margin: 0px;
+  -webkit-padding-start: 0px;
+}
+/* line 231, ../sass/style.scss */
+.output-list li {
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 16px;
+  color: #a3a3a4;
+  height: 70px;
+  margin-bottom: 5px;
+  border-bottom: thin solid #efefef;
+}
+/* line 240, ../sass/style.scss */
+.output-list li:hover {
+  background-color: #084ca1;
+  color: #fff;
+}
+/* line 244, ../sass/style.scss */
+.output-list li icon {
+  float: left;
+  margin-top: 30px;
+  margin-right: 10px;
+  margin-left: 20px;
+}
+/* line 250, ../sass/style.scss */
+.output-list li h3 {
+  text-align: center;
+  line-height: 75px;
+  font-size: 14px;
+  margin: 0px;
+  float: left;
+  text-indent: 5px;
+}
+
+/* line 264, ../sass/style.scss */
 .socicon {
   font-family: 'socicon' !important;
 }
 
-/* line 165, ../sass/style.scss */
+/* line 269, ../sass/style.scss */
 .socicon {
   position: relative;
   top: 1px;
@@ -198,322 +301,322 @@ header h1 {
   -webkit-font-smoothing: antialiased;
 }
 
-/* line 175, ../sass/style.scss */
+/* line 279, ../sass/style.scss */
 .socicon:empty {
   width: 1em;
 }
 
-/* line 179, ../sass/style.scss */
+/* line 283, ../sass/style.scss */
 .socicon-easid:before {
   content: "5";
 }
 
-/* line 180, ../sass/style.scss */
+/* line 284, ../sass/style.scss */
 .socicon-twitter:before {
   content: "a";
 }
 
-/* line 181, ../sass/style.scss */
+/* line 285, ../sass/style.scss */
 .socicon-facebook:before {
   content: "b";
 }
 
-/* line 182, ../sass/style.scss */
+/* line 286, ../sass/style.scss */
 .socicon-google:before {
   content: "c";
 }
 
-/* line 183, ../sass/style.scss */
+/* line 287, ../sass/style.scss */
 .socicon-pinterest:before {
   content: "d";
 }
 
-/* line 184, ../sass/style.scss */
+/* line 288, ../sass/style.scss */
 .socicon-foursquare:before {
   content: "e";
 }
 
-/* line 185, ../sass/style.scss */
+/* line 289, ../sass/style.scss */
 .socicon-yahoo:before {
   content: "f";
 }
 
-/* line 186, ../sass/style.scss */
+/* line 290, ../sass/style.scss */
 .socicon-skype:before {
   content: "g";
 }
 
-/* line 187, ../sass/style.scss */
+/* line 291, ../sass/style.scss */
 .socicon-yelp:before {
   content: "h";
 }
 
-/* line 188, ../sass/style.scss */
+/* line 292, ../sass/style.scss */
 .socicon-feedburner:before {
   content: "i";
 }
 
-/* line 189, ../sass/style.scss */
+/* line 293, ../sass/style.scss */
 .socicon-linkedin:before {
   content: "j";
 }
 
-/* line 190, ../sass/style.scss */
+/* line 294, ../sass/style.scss */
 .socicon-viadeo:before {
   content: "k";
 }
 
-/* line 191, ../sass/style.scss */
+/* line 295, ../sass/style.scss */
 .socicon-xing:before {
   content: "l";
 }
 
-/* line 192, ../sass/style.scss */
+/* line 296, ../sass/style.scss */
 .socicon-myspace:before {
   content: "m";
 }
 
-/* line 193, ../sass/style.scss */
+/* line 297, ../sass/style.scss */
 .socicon-soundcloud:before {
   content: "n";
 }
 
-/* line 194, ../sass/style.scss */
+/* line 298, ../sass/style.scss */
 .socicon-spotify:before {
   content: "o";
 }
 
-/* line 195, ../sass/style.scss */
+/* line 299, ../sass/style.scss */
 .socicon-grooveshark:before {
   content: "p";
 }
 
-/* line 196, ../sass/style.scss */
+/* line 300, ../sass/style.scss */
 .socicon-lastfm:before {
   content: "q";
 }
 
-/* line 197, ../sass/style.scss */
+/* line 301, ../sass/style.scss */
 .socicon-youtube:before {
   content: "r";
 }
 
-/* line 198, ../sass/style.scss */
+/* line 302, ../sass/style.scss */
 .socicon-vimeo:before {
   content: "s";
 }
 
-/* line 199, ../sass/style.scss */
+/* line 303, ../sass/style.scss */
 .socicon-dailymotion:before {
   content: "t";
 }
 
-/* line 200, ../sass/style.scss */
+/* line 304, ../sass/style.scss */
 .socicon-vine:before {
   content: "u";
 }
 
-/* line 201, ../sass/style.scss */
+/* line 305, ../sass/style.scss */
 .socicon-flickr:before {
   content: "v";
 }
 
-/* line 202, ../sass/style.scss */
+/* line 306, ../sass/style.scss */
 .socicon-500px:before {
   content: "w";
 }
 
-/* line 203, ../sass/style.scss */
+/* line 307, ../sass/style.scss */
 .socicon-instagram:before {
   content: "x";
 }
 
-/* line 204, ../sass/style.scss */
+/* line 308, ../sass/style.scss */
 .socicon-wordpress:before {
   content: "y";
 }
 
-/* line 205, ../sass/style.scss */
+/* line 309, ../sass/style.scss */
 .socicon-tumblr:before {
   content: "z";
 }
 
-/* line 206, ../sass/style.scss */
+/* line 310, ../sass/style.scss */
 .socicon-blogger:before {
   content: "A";
 }
 
-/* line 207, ../sass/style.scss */
+/* line 311, ../sass/style.scss */
 .socicon-technorati:before {
   content: "B";
 }
 
-/* line 208, ../sass/style.scss */
+/* line 312, ../sass/style.scss */
 .socicon-reddit:before {
   content: "C";
 }
 
-/* line 209, ../sass/style.scss */
+/* line 313, ../sass/style.scss */
 .socicon-dribbble:before {
   content: "D";
 }
 
-/* line 210, ../sass/style.scss */
+/* line 314, ../sass/style.scss */
 .socicon-stumbleupon:before {
   content: "E";
 }
 
-/* line 211, ../sass/style.scss */
+/* line 315, ../sass/style.scss */
 .socicon-digg:before {
   content: "F";
 }
 
-/* line 212, ../sass/style.scss */
+/* line 316, ../sass/style.scss */
 .socicon-envato:before {
   content: "G";
 }
 
-/* line 213, ../sass/style.scss */
+/* line 317, ../sass/style.scss */
 .socicon-behance:before {
   content: "H";
 }
 
-/* line 214, ../sass/style.scss */
+/* line 318, ../sass/style.scss */
 .socicon-delicious:before {
   content: "I";
 }
 
-/* line 215, ../sass/style.scss */
+/* line 319, ../sass/style.scss */
 .socicon-deviantart:before {
   content: "J";
 }
 
-/* line 216, ../sass/style.scss */
+/* line 320, ../sass/style.scss */
 .socicon-forrst:before {
   content: "K";
 }
 
-/* line 217, ../sass/style.scss */
+/* line 321, ../sass/style.scss */
 .socicon-play:before {
   content: "L";
 }
 
-/* line 218, ../sass/style.scss */
+/* line 322, ../sass/style.scss */
 .socicon-zerply:before {
   content: "M";
 }
 
-/* line 219, ../sass/style.scss */
+/* line 323, ../sass/style.scss */
 .socicon-wikipedia:before {
   content: "N";
 }
 
-/* line 220, ../sass/style.scss */
+/* line 324, ../sass/style.scss */
 .socicon-apple:before {
   content: "O";
 }
 
-/* line 221, ../sass/style.scss */
+/* line 325, ../sass/style.scss */
 .socicon-flattr:before {
   content: "P";
 }
 
-/* line 222, ../sass/style.scss */
+/* line 326, ../sass/style.scss */
 .socicon-github:before {
   content: "Q";
 }
 
-/* line 223, ../sass/style.scss */
+/* line 327, ../sass/style.scss */
 .socicon-chimein:before {
   content: "R";
 }
 
-/* line 224, ../sass/style.scss */
+/* line 328, ../sass/style.scss */
 .socicon-friendfeed:before {
   content: "S";
 }
 
-/* line 225, ../sass/style.scss */
+/* line 329, ../sass/style.scss */
 .socicon-newsvine:before {
   content: "T";
 }
 
-/* line 226, ../sass/style.scss */
+/* line 330, ../sass/style.scss */
 .socicon-identica:before {
   content: "U";
 }
 
-/* line 227, ../sass/style.scss */
+/* line 331, ../sass/style.scss */
 .socicon-bebo:before {
   content: "V";
 }
 
-/* line 228, ../sass/style.scss */
+/* line 332, ../sass/style.scss */
 .socicon-zynga:before {
   content: "W";
 }
 
-/* line 229, ../sass/style.scss */
+/* line 333, ../sass/style.scss */
 .socicon-steam:before {
   content: "X";
 }
 
-/* line 230, ../sass/style.scss */
+/* line 334, ../sass/style.scss */
 .socicon-xbox:before {
   content: "Y";
 }
 
-/* line 231, ../sass/style.scss */
+/* line 335, ../sass/style.scss */
 .socicon-windows:before {
   content: "Z";
 }
 
-/* line 232, ../sass/style.scss */
+/* line 336, ../sass/style.scss */
 .socicon-outlook:before {
   content: "1";
 }
 
-/* line 233, ../sass/style.scss */
+/* line 337, ../sass/style.scss */
 .socicon-coderwall:before {
   content: "2";
 }
 
-/* line 234, ../sass/style.scss */
+/* line 338, ../sass/style.scss */
 .socicon-tripadvisor:before {
   content: "3";
 }
 
-/* line 235, ../sass/style.scss */
+/* line 339, ../sass/style.scss */
 .socicon-netcodes:before {
   content: "4";
 }
 
-/* line 236, ../sass/style.scss */
+/* line 340, ../sass/style.scss */
 .socicon-lanyrd:before {
   content: "7";
 }
 
-/* line 237, ../sass/style.scss */
+/* line 341, ../sass/style.scss */
 .socicon-slideshare:before {
   content: "8";
 }
 
-/* line 238, ../sass/style.scss */
+/* line 342, ../sass/style.scss */
 .socicon-buffer:before {
   content: "9";
 }
 
-/* line 239, ../sass/style.scss */
+/* line 343, ../sass/style.scss */
 .socicon-rss:before {
   content: ",";
 }
 
-/* line 240, ../sass/style.scss */
+/* line 344, ../sass/style.scss */
 .socicon-vkontakte:before {
   content: ";";
 }
 
-/* line 241, ../sass/style.scss */
+/* line 345, ../sass/style.scss */
 .socicon-disqus:before {
   content: ":";
 }

@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	var goallist = [];
+	var subcriberlist = [];
 
 	$('.input-list li').click(function(evt){
 		//add item to goallist
@@ -9,6 +10,12 @@ $(document).ready(function(){
 		//console.log(goaln);
 		evt.stopPropagation();
 		console.log(goallist);
+	})
+
+	$('.output-list li').click(function(evt){
+		var output = $(this).attr('data-id');
+		subcriberlist.push(output);
+		console.log(subcriberlist);
 	})
 
 
@@ -21,7 +28,6 @@ $(document).ready(function(){
 	$('#save').click(function(){
 		var des = $('#campaigndescription').val();
 		var cname = $('#campaignname').val();
-		//var goallist;
 		//for loop of goals that are selected
 
 		//for loop of subs/notifications
@@ -31,7 +37,7 @@ $(document).ready(function(){
 		$.ajax({
 		  type: "POST",
 		  url: '/api/campaign',
-		  data: {name: cname, description:des, goals:goallist, },
+		  data: {name: cname, description:des, goals:goallist, subscribers: subcriberlist },
 		  success: function(result){
 
 	  		console.log(result);
@@ -41,6 +47,19 @@ $(document).ready(function(){
 		  	console.log(err);
 		  }
 		});
+	})
+
+
+
+
+	$('.results-list li').click(function(evt){
+		if($(this).hasClass('selected'))
+		{
+			$(this).removeClass('selected')
+		}else{
+
+			$(this).addClass('selected')
+		}
 	})
 })
 

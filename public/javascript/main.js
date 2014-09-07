@@ -2,6 +2,10 @@ $(document).ready(function(){
 	var goallist = [];
 	var subcriberlist = [];
 
+	$.get('/api/campaign', function(data){
+		console.log(data);
+	})
+
 	$('.input-list li').click(function(evt){
 		//add item to goallist
 		// add a new item to the middle

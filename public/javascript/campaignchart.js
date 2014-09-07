@@ -44,7 +44,7 @@
         subscriptionOutput.uielement = thisBall;
 
         if (!update)
-            this.outputs.push(subscriptionOutput);
+            that.outputs.push(subscriptionOutput);
     }
 
     this.updateToRandomValues = function () {
@@ -94,7 +94,9 @@ function SourceBlock(options) {
 
     this.show = function () {
         setTimeout(function () {
-            that.element.className += " on";
+            if (that.element.className.indexOf("on") < 0) {
+                that.element.className += " on";
+            }
         }, 50)
     }
 
@@ -150,7 +152,9 @@ function OutBall(options) {
 
     this.show = function () {
         setTimeout(function () {
-            that.element.className += " on";
+            if (that.element.className.indexOf("on") < 0) {
+                that.element.className += " on";
+            }
         }, 50)
     }
 

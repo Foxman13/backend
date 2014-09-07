@@ -5,7 +5,12 @@ $(document).ready(function(){
             glyph: "/images/twitter.png",
             filterValue: "HackDisrupt",
             thresholdValue: "2500"
-        }], outputs: [] });
+	}, {
+	    glyph: "/images/twitter.png",
+	    filterValue: "TechCrunch",
+	    thresholdValue: "200"
+	}], outputs: [{}, {}]
+	});
 	$('.input-list li').click(function(evt){
 		//add item to goallist
 		// add a new item to the middle

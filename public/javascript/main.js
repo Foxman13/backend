@@ -94,7 +94,7 @@ $(document).ready(function () {
         var cname = $('#campaignname').val();
 
         $('.campaign-item').hide();
-       $("html, body").animate({ scrollTop: 0 }, "slow");
+       $("html, body").animate({ scrollTop: 250 }, "slow");
         //for loop of goals that are selected
         var goallist = chart.getGoalList();
         //for loop of subs/notifications
@@ -230,15 +230,19 @@ $(document).ready(function () {
         chartOutput2.name = 'Gauge';
         chartOutput2.glyph = 'glyphicon glyphicon-dashboard';
         
+   
+         
  		 var chart1 = new CampaignChart({
-        		parent: $($('.results-expanded')[1]),
+        		parent: $($('.results-expanded')[0]),
         		sourceGoals: [chartSourceGoal],
-        		outputs: []
+        		outputs: [],
+        		order:'prependTo'
     		});
  		 chart1.addSubscriptionOutput(chartOutput);
  		 chart1.addSubscriptionOutput(chartOutput2);
 
  		 listCharts.unshift(chart1);
+ 		
         }
     })
 
@@ -270,7 +274,7 @@ $(document).ready(function () {
         chartOutput2.glyph = 'glyphicon glyphicon-fire';
         
  		 var chart1 = new CampaignChart({
-        		parent: $($('.results-expanded')[1]),
+        		parent: $($('.results-expanded')[0]),
         		sourceGoals: [chartSourceGoal],
         		outputs: []
     		});
@@ -286,7 +290,7 @@ $(document).ready(function () {
  		 chart2Output.glyph = 'glyphicon glyphicon-phone';
 
  		 var chart2 = new CampaignChart({
- 		     parent: $($('.results-expanded')[1]),
+ 		     parent: $($('.results-expanded')[0]),
  		     sourceGoals: [chart2SourceGoal, chart2SourceGoal2],
  		     outputs: []
  		 });

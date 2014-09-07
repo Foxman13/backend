@@ -3,6 +3,7 @@
     this.parent = options.parent;
     this.sourceGoals = options.sourceGoals ? options.sourceGoals : [];
     this.outputs = options.outputs ? options.outputs : [];
+    this.order = options.order? options.order:'appendTo';
     this.element;
 
     this.getGoalList = function () {
@@ -26,7 +27,7 @@
         that.element.className = "campaignChart";
         this.sourceGoals.forEach(that.addSourceGoal, true);
         this.outputs.forEach(that.addSubscriptionOutput, true);
-        $(that.element).appendTo($(that.parent));
+        $(that.element)[that.order]($(that.parent));
     };
 
     this.addSourceGoal = function (sourceGoal, update) {

@@ -27,7 +27,7 @@
     };
 
     this.pushSourceGoal = function (sourceGoal, update) {
-        console.log(sourceGoal)
+
         sourceGoal.parent = that.element.querySelector(".superProgress .surface");
         var thisBlock = new SourceBlock(sourceGoal);
         thisBlock.show();
@@ -44,7 +44,7 @@
         subscriptionOutput.uielement = thisBall;
 
         if (!update)
-            this.outputs.push(subscriptionOutput);
+            that.outputs.push(subscriptionOutput);
     }
 
     this.updateToRandomValues = function () {

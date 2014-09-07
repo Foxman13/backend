@@ -1,11 +1,33 @@
 $(document).ready(function(){
 	var goallist = [];
 	var subcriberlist = [];
+	var getCampaigns = function(){
+		console.log("here we go")
+		$.ajax({
+		  type: "GET",
+		  url: '/api/campaign',
+		  success: function(result){
+
+	  		console.log("success");
+
+		  },
+		  error: function(err){
+		  	console.log("OMG ERROR");
+		  }
+		});
+
+	}
+
+	getCampaigns();
 	var chart = new CampaignChart({ parent: $('.campaign-chart'), sourceGoals: [{
             glyph: "/images/twitter.png",
             filterValue: "HackDisrupt",
             thresholdValue: "2500"
-        }], outputs: [] });
+        }], outputs: [{
+            glyph: "/images/twitter.png",
+            filterValue: "HackDisrupt",
+            thresholdValue: "2500"
+        }] });
 	$('.input-list li').click(function(evt){
 		//add item to goallist
 		// add a new item to the middle
@@ -19,7 +41,7 @@ $(document).ready(function(){
 	$('.output-list li').click(function(evt){
 		var output = $(this).attr('data-id');
 		subcriberlist.push(output);
-		console.log(subcriberlist);
+		
 	})
 
 
@@ -65,5 +87,13 @@ $(document).ready(function(){
 			$(this).addClass('selected')
 		}
 	})
+
+
+	var getCampaigns = function(){
+		
+		$.get( "api/campaign", function( data ) {
+  			console.log("data")
+		})
+	}
 })
 

@@ -127,7 +127,7 @@ a.symbol:before {
 /* line 97, ../sass/_campaignchart.scss */
 .superProgress .item-count {
   font-size: 24px;
-  color: #084ca1;
+  color: #a3a3a4;
 }
 
 /* line 105, ../sass/_campaignchart.scss */
@@ -146,9 +146,9 @@ a.symbol:before {
   -ms-grid-row-span: 3;
   width: 100%;
   height: 100%;
-  color: #f0bf08;
+  color: #C1F0F6;
   border: none;
-  background-color: #a3a3a4;
+  background-color: #efefef;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
@@ -220,14 +220,14 @@ body {
 /* line 22, ../sass/style.scss */
 .goal-txt {
   font-size: 18px;
-  color: #fff;
+  color: #a3a3a4;
   font-weight: 300;
   margin-bottom: 0px;
 }
 
 /* line 29, ../sass/style.scss */
 .goal-threshold {
-  color: #fff;
+  color: #a3a3a4;
   margin: 0px;
 }
 

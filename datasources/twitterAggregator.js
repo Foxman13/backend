@@ -36,10 +36,18 @@ module.exports = function () {
         //
         //  filter the twitter public stream by the word 'mango'.
         //
-        var stream = twitter.stream('statuses/filter', { track: 'mango' })
+        var stream = twitter.stream('statuses/filter', { track: hashtag })
         
         stream.on('tweet', function (tweet) {
-            
+            goal.count++;
+            console.log('Goal ' + goal.name + ' count ' + goal.count + ' goal target ' + goal.goal_count);
+            goal.save(function (err, data) {
+                
+                if (err) {
+                    console.log(err);
+                }
+                    
+            });
             if (!this.isRunning) {
             
                 data.dbConnectAndExecute(function (err) {
@@ -73,18 +81,43 @@ module.exports = function () {
                     var notification = subscribers[c].notifications[z]
                     
                     //notify subscribers 
-                    if (notification.type == "SparkIo") {
+                    if (notification.type == "SparkIoDigital") {
                         
+                        if (!notification.continuous_messaging && goal.count > goal.goal_count) {
+                            unirest.post(notification.endpoint)
+                            .send(notification.inputs[0].name + '=' + notification.inputs[0].value)
+                            .send(notification.inputs[1].name + '=' + notification.inputs[1].value)
+                            .end(function (response) {
+                                console.log('sent SparkIODigital!');
+                                console.log(response.body);
+                            });
+                        }
                         
-                        unirest.post(notification.endpoint)
-                        .send(notification.inputs[0].name + '=' + notification.inputs[0].value)
-                        .send(notification.inputs[1].name + '=' + notification.inputs[1].value)
-                        .end(function (response) {
-                            console.log('sent sparkio notification!');
-                             console.log(response.body);
-                        });
 
                     }
+                    else if (notification.type == "SparkIoProgress") {
+                        
+                        if (!notification.continuous_messaging && goal.count > goal.goal_count) {
+                            unirest.post(notification.endpoint)
+                            .send(notification.inputs[0].name + '=' + notification.inputs[0].value)
+                            .send(notification.inputs[1].name + '=' + goal.count + ',' + goal.goal_count)
+                            .end(function (response) {
+                                console.log('sent sparkio notification!');
+                                console.log(response.body);
+                            });
+                        }
+                        else if (notification.continuous_messaging){
+                            unirest.post(notification.endpoint)
+                            .send(notification.inputs[0].name + '=' + notification.inputs[0].value)
+                            .send(notification.inputs[1].name + '=' + goal.count + ',' + goal.goal_count)
+                            .end(function (response) {
+                                console.log('sent sparkio progress! notification!');
+                                console.log(response.body);
+                            });
+                        }
+                    }
+
+                    
                 }
             }
         }.bind(this))

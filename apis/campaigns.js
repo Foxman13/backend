@@ -386,6 +386,9 @@ router.post('/subscriptions', function (req, res) {
 /* Create or modify campaign - POST /api/campaign */
 router.post('/', function (req, res) {
     
+    if (typeof req.body == String) {
+        req.body = JSON.parse(req.body);
+    }
     if (!req.body.name && !req.body.id) {
         return res.send(400, { message: 'To create a campaign, send a body with at least the name field or id field' }); 
     }

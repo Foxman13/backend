@@ -117,8 +117,8 @@
             width: 100%;
             height: 100%;
             color: rgba(255, 255, 255, 0.40);
-            background-color:rgba(13,84,255,0.50)
-            border:thin #efefef thin;
+            background-color:rgba(13,84,255,0.50);
+            border:thin #efefef solid;
             @include border-radius(5px);
 
 

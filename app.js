@@ -11,6 +11,7 @@ var users = require('./routes/users');
 var campaigns = require('./apis/campaigns');
 var sources = require('./apis/sources');
 var notifications = require('./apis/notifications');
+var twitterAggregator = require('./datasources/twitterAggregator.js');
 var app = express();
 
 // view engine setup
@@ -32,7 +33,7 @@ app.use('/users', users);
 app.use('/api/campaign', campaigns);
 app.use('/api/source', sources);
 app.use('/api/notification', notifications);
-
+ 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');

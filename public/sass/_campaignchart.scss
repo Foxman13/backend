@@ -117,7 +117,7 @@
             width: 100%;
             height: 100%;
             color: rgba(255, 255, 255, 0.40);
-            background-color:#efefef;
+            background-color:rgba(13,84,255,0.50)
             border:thin #efefef thin;
             @include border-radius(5px);
 
@@ -162,7 +162,7 @@
         }
 
         .outBalls .ball.active {
-            background-color: yellow;
+            background-color: $yellow;
         }
 
         .outBalls .ball div {

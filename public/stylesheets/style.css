@@ -146,7 +146,7 @@ a.symbol:before {
   -ms-grid-row-span: 3;
   width: 100%;
   height: 100%;
-  color: #fafafa;
+  color: rgba(0, 174, 239, 0.1);
   border: none;
   background-color: #efefef;
   -webkit-border-radius: 5px;

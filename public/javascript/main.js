@@ -25,17 +25,19 @@ $(document).ready(function(){
 	});
 
 	$('.input-list li').click(function(evt){
-		//add item to goallist
-		// add a new item to the middle
-		var goaln = {
-			name: $(this).attr('data-id'),
-			source: subcriberlist,
-			count: 20};
+		
 
-		goallist.push(goaln);
+		chart.pushSourceGoal({
+            glyph: "/images/twitter.png",
+            name: "NameGoal",
+            count: "2500",
+            source:$(this).attr('data-id')
+        });
+
+		//goallist.push(goaln);
 		//console.log(goaln);
 		evt.stopPropagation();
-		console.log(goallist);
+		
 	})
 
 	$('.output-list li').click(function(evt){
@@ -69,8 +71,22 @@ $(document).ready(function(){
 		//goal name, source, count, 
 		//source inputs, name, description
 		// sub name, notifications
-		console.log(val);
+		//add item to goallist
+		// add a new item to the middle
 
+        var tempName = new Date().getTime()+"__GOAL";
+		var goal={
+			goal_count:20,
+			source:$(this).attr('data-id'),
+			inputs:[{name:'hashtag',value:'#hashtagvalue'}],
+			name:new Date().getTime()+"__GOAL",
+			continuous_messaging:true
+		}
+
+		
+		
+
+        
 		$.ajax({
 		  type: "POST",
 		  url: '/api/campaign',

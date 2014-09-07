@@ -87,7 +87,7 @@ body{
 		}
 		.results-expanded{
 			height:0px;
-
+		
 			
 			-webkit-transition: 0.5s ease-in-out;
     			-moz-transition: 0.5s ease-in-out;
@@ -96,7 +96,7 @@ body{
 		}
 		&.selected{
 
- 			border:thin $light-gray solid;
+ 			
 			.open-btn{
 				transform: rotate(90deg);
 				-webkit-transition: 1s ease-in-out;

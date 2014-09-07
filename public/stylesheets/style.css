@@ -114,10 +114,6 @@ body {
   -o-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
 }
-/* line 97, ../sass/style.scss */
-.results-list li.selected {
-  border: thin #efefef solid;
-}
 /* line 100, ../sass/style.scss */
 .results-list li.selected .open-btn {
   transform: rotate(90deg);

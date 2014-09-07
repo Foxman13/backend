@@ -18,9 +18,8 @@
     overflow: hidden;
     overflow-x: auto;
 }
-
-    .superProgress .surface {
-        width: auto;
+.superProgress .surface {
+       width: auto;
         height: 100%;
         display: -ms-flexbox;
         -ms-flex-pack: start;
@@ -28,18 +27,18 @@
         -ms-flex-direction: row;
         font-size: 14pt;
         color: white;
-        margin-left: 10px;
-        margin-right: 10px;
-    }
+        /*margin-left: 10px;*/
+        margin-right: 10px; 
+}
 
 
     .superProgress .sourceBlock {
         width: calc(100% - 10px);
-        min-width: 150px;
+        min-width: 100px;
         max-width: 100%;
         height: calc(100% - 30px);
-        margin-left: 5px;
-        margin-right: 5px;
+        margin-left: 2px;
+        margin-right: 2px;
         margin-top: 10px;
         margin-bottom: 10px;
         display: -ms-grid;
@@ -79,8 +78,33 @@
                 margin-bottom: 10px;
             }
 
+            .superProgress{
+                .item-title{
+                    font-size:24px;
+                }
+
+            }
+
+            .superProgress{
+
+                .item-action{
+                    font-size:12px;
+                }
+            }
+
+            .superProgress{
+
+                .item-count{
+                    font-size:18px;
+                    color:$yellow;
+                }
+            }
+
+          
+
             .superProgress .sourceBlock .srcText .editable {
-                background-color: rgba(255, 255, 255, 0.1);
+               /* background-color: rgba(255, 255, 255, 0.1);*/
+         
             }
 
                 .superProgress .sourceBlock .srcText .editable:focus {
@@ -93,6 +117,8 @@
             width: 100%;
             height: 100%;
             color: rgba(255, 255, 255, 0.40);
+            background-color:$pink;
+            border:none;
         }
 
 .outBalls {

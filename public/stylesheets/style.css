@@ -30,38 +30,28 @@ a.symbol:before {
   font-size: 48px;
 }
 
-/* line 2, ../sass/_campaignchart.scss */
-.chartHost {
-  -ms-grid-row: 2;
-  display: -ms-flexbox;
-  -ms-flex-direction: column;
-  -ms-flex-pack: start;
-  -ms-flex-align: center;
-}
-
-/* line 13, ../sass/_campaignchart.scss */
+/* line 3, ../sass/_campaignchart.scss */
 .campaignChart {
   display: -ms-grid;
   -ms-grid-rows: 1fr;
   -ms-grid-columns: 2fr 1fr;
-  width: 90%;
+  width: 100%;
   height: auto;
   margin-bottom: 20px;
-  background-color: lightgrey;
 }
 
-/* line 24, ../sass/_campaignchart.scss */
+/* line 12, ../sass/_campaignchart.scss */
 .superProgress {
   -ms-grid-column-align: end;
   -ms-grid-row-align: center;
   width: 100%;
-  height: 150px;
+  height: 120px;
   background-color: white;
   overflow: hidden;
   overflow-x: auto;
 }
 
-/* line 34, ../sass/_campaignchart.scss */
+/* line 21, ../sass/_campaignchart.scss */
 .superProgress .surface {
   width: auto;
   height: 100%;
@@ -69,38 +59,37 @@ a.symbol:before {
   -ms-flex-pack: start;
   -ms-flex-align: stretch;
   -ms-flex-direction: row;
-  font: normal 14pt 'Segoe UI';
+  font-size: 14pt;
   color: white;
-  margin-left: 10px;
+  /*margin-left: 10px;*/
   margin-right: 10px;
 }
 
-/* line 48, ../sass/_campaignchart.scss */
+/* line 35, ../sass/_campaignchart.scss */
 .superProgress .sourceBlock {
   width: calc(100% - 10px);
-  min-width: 150px;
+  min-width: 100px;
   max-width: 100%;
   height: calc(100% - 30px);
-  margin-left: 5px;
-  margin-right: 5px;
+  margin-left: 2px;
+  margin-right: 2px;
   margin-top: 10px;
   margin-bottom: 10px;
   display: -ms-grid;
   -ms-grid-columns: 1fr;
   -ms-grid-rows: 1fr auto 1fr;
-  background-color: green;
   transition: opacity ease 400ms, transform ease-out 300ms;
   opacity: 0;
   transform: translateY(-30px);
 }
 
-/* line 66, ../sass/_campaignchart.scss */
+/* line 52, ../sass/_campaignchart.scss */
 .superProgress .sourceBlock.on {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* line 73, ../sass/_campaignchart.scss */
+/* line 59, ../sass/_campaignchart.scss */
 .superProgress .sourceBlock .glyph {
   -ms-grid-row-align: start;
   -ms-grid-column-align: end;
@@ -111,41 +100,58 @@ a.symbol:before {
   background-image: url("/images/twitter.png");
   background-size: contain;
   background-repeat: no-repeat;
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
-/* line 86, ../sass/_campaignchart.scss */
+/* line 72, ../sass/_campaignchart.scss */
 .superProgress .sourceBlock .srcText {
   margin-left: 20px;
   -ms-grid-row: 2;
-  z-index: 999;
 }
 
-/* line 92, ../sass/_campaignchart.scss */
+/* line 77, ../sass/_campaignchart.scss */
 .superProgress .sourceBlock .srcText div {
   margin-bottom: 10px;
 }
 
-/* line 96, ../sass/_campaignchart.scss */
-.superProgress .sourceBlock .srcText .editable {
-  background-color: rgba(255, 255, 255, 0.1);
+/* line 82, ../sass/_campaignchart.scss */
+.superProgress .item-title {
+  font-size: 24px;
 }
 
-/* line 100, ../sass/_campaignchart.scss */
+/* line 90, ../sass/_campaignchart.scss */
+.superProgress .item-action {
+  font-size: 12px;
+}
+
+/* line 97, ../sass/_campaignchart.scss */
+.superProgress .item-count {
+  font-size: 18px;
+  color: #f0bf08;
+}
+
+/* line 105, ../sass/_campaignchart.scss */
+.superProgress .sourceBlock .srcText .editable {
+  /* background-color: rgba(255, 255, 255, 0.1);*/
+}
+
+/* line 110, ../sass/_campaignchart.scss */
 .superProgress .sourceBlock .srcText .editable:focus {
   background-color: rgba(255, 255, 255, 0.7);
   color: green;
 }
 
-/* line 105, ../sass/_campaignchart.scss */
+/* line 115, ../sass/_campaignchart.scss */
 .superProgress .sourceBlock progress {
   -ms-grid-row-span: 3;
   width: 100%;
   height: 100%;
   color: rgba(255, 255, 255, 0.4);
+  background-color: #b21e8d;
+  border: none;
 }
 
-/* line 112, ../sass/_campaignchart.scss */
+/* line 124, ../sass/_campaignchart.scss */
 .outBalls {
   -ms-grid-column: 2;
   -ms-grid-row-align: center;
@@ -154,11 +160,11 @@ a.symbol:before {
   -ms-flex-direction: row;
 }
 
-/* line 120, ../sass/_campaignchart.scss */
+/* line 132, ../sass/_campaignchart.scss */
 .outBalls .ball {
-  width: 100px;
-  height: 100px;
-  border-radius: 50px 50px 50px 50px;
+  width: 60px;
+  height: 60px;
+  border-radius: 30px 30px 30px 30px;
   background-color: rgba(0, 128, 0, 0.4);
   margin-left: 20px;
   display: -ms-grid;
@@ -170,18 +176,18 @@ a.symbol:before {
   opacity: 0;
 }
 
-/* line 136, ../sass/_campaignchart.scss */
+/* line 149, ../sass/_campaignchart.scss */
 .outBalls .ball.on {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* line 141, ../sass/_campaignchart.scss */
+/* line 154, ../sass/_campaignchart.scss */
 .outBalls .ball.active {
   background-color: yellow;
 }
 
-/* line 145, ../sass/_campaignchart.scss */
+/* line 158, ../sass/_campaignchart.scss */
 .outBalls .ball div {
   font-size: 36pt;
   -ms-grid-column-align: center;

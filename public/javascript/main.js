@@ -23,7 +23,6 @@ $(document).ready(function () {
     $('.input-list li').click(function (evt) {
         var chartSourceGoal = new Goal();
         chart.addSourceGoal(chartSourceGoal);
-
         //goallist.push(goaln);
         //console.log(goaln);
         evt.stopPropagation();

@@ -20,7 +20,6 @@
         that.element = document.createElement("div");
         that.element.innerHTML = (campaignChartDom);
         that.element.className = "campaignChart";
-
         this.sourceGoals.forEach(that.addSourceGoal, true);
         this.outputs.forEach(that.pushSubscriptionOutput, true);
         $(that.element).appendTo($(that.parent));
@@ -129,7 +128,6 @@ function SourceBlock(goal) {
         + '     <div><span>#</span><span class="editable">' + that.goal.inputs.value + '</span></div>'
         + '     <div><span class="editable">' + that.goal + '</span><span> tweets</span></div>'
         + '  </div>';
-
 
         that.element = document.createElement("div");
         that.element.innerHTML = (sourceBlockDom);

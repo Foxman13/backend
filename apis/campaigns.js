@@ -2,7 +2,8 @@
 var mongoose = require('mongoose');
 var data = require('../data/data');
 var schemas = require('../data/mongooseSchemas');
-
+var TwitterData = require('../datasources/twitterAggregator.js');
+var twitterDataSource = new TwitterData();
 var router = express.Router();
 
 /* Retrieve Campaign - GET /api/campaign */ 
@@ -54,6 +55,195 @@ router.use('/subscriptions', function (req, res, next) {
     }
 
     next();
+});
+
+router.get('/subscriptions/notifications', function (req, res) {
+    
+    if (!req.query.subscription_id) {
+        return res.send({ message: 'You must provide subscription_id query param to modify notifications on that subscription' });
+    }
+    //connect to db
+    data.dbConnectAndExecute(function (err) {
+        if (err) {
+            return res.send(500, { message: "could not connect to database" });
+        }
+        
+        schemas.Campaign.find({_id: req.query.subscription_id}, function (err, data) {
+            var notifications = [];
+            
+            if (err) {
+                return res.send(500, { message: err });
+            
+            }
+            for (var i in data) {
+                notifications.push(data[i]);
+            
+            }
+            return res.send(200, data);
+        
+        })
+        
+    });
+
+});
+
+router.post('/goals/start', function (req, res) {
+
+    if (!req.query.campaign_id) {
+
+        return response.send(400, { message: 'must specify subscription_id to add or modify notifications!' });
+
+    }
+    data.dbConnectAndExecute(function (err) {
+    
+        schemas.Campaign.findOne({ _id: req.query.campaign_id }, function (err, entity) {
+            
+            if (err) {
+                
+                return res.send(500, { message: 'failed to find subscrption ' + req.query.subscription_id + err });
+
+            }
+            
+            for (var i in entity.goals) {
+                
+                if (entity.goals[i].source && entity.goals[i].inputs) {
+                    //start the goal
+                    twitterDataSource.run(entity.goals[i], req.query.campaign_id, entity.subscribers, function (err) {
+
+                    });
+                }
+                
+
+            }
+
+            return res.send(200);
+        });
+    
+    
+    });
+
+});
+
+//Create a new notification using an available notifciation type
+router.post('/subscriptions/notifications', function (req, res) {
+    
+    if (!req.query.subscription_id) {
+    
+        return response.send({ message: 'must specify subscription_id to add or modify notifications!' });
+    
+    }
+
+    //connect to db
+    data.dbConnectAndExecute(function (err) {
+        if (err) {
+            return res.send(500, { message: "could not connect to database" });
+        }
+        
+
+        schemas.Campaign.findOne({ _id: req.query.campaign_id }, function (err, entity) {
+
+            if (err) {
+                    
+                return res.send(500, { message: 'failed to find subscrption ' + req.query.subscription_id + err } );
+                
+            }
+                
+            for (var i in entity.subscribers) {
+                
+                if (entity.subscribers[i]._id == req.query.subscription_id) {
+                        
+                    if (req.query.notification_id) {
+                        for (var z in entity.subscribers[i].notifications[z]) {
+                        
+                            if (req.query.notification_id == entity.subscribers[i].notifications[z]._id) {
+                                var notificationToModify = entity.subscribers[i].notifications[z];
+                                //just modify the existing notification
+                                notificationToModify.inputs = req.body.inputs;
+                                notificationToModify.type = req.body.type;
+                                notificationToModify.endpoint = req.body.endpoint;
+
+                            }
+                        
+                        }
+                    }
+                    var sub = entity.subscribers[i];
+                    sub.notifications.push(req.body);
+                    
+                }
+
+            }
+
+            entity.save(function (err, result) {
+                
+                if (err) {
+                    
+                    return res.send(500, err);
+                }
+
+                return res.send(200);
+                
+            });
+        });
+       
+    });
+
+});
+
+router.post('/goals', function (req, res) {
+
+    if(!req.query.campaign_id){
+        return res.send(400, {message:'must specify campaign_id to modify goals on that campaign'});
+    }
+    
+    //connect to db
+    data.dbConnectAndExecute(function (err) {
+        if (err) {
+            return res.send(500, { message: "could not connect to database" });
+        }
+
+        schemas.Campaign.findOne({ _id: req.query.campaign_id }, function (err, entity) {
+
+            entity.goals.push(req.body);
+
+            entity.save(function (err, data) {
+            
+                if (err) {
+                    return res.send(500, err);
+                }
+                
+                return res.send(200);
+            });
+
+        });
+    });
+
+});
+
+router.get('/goals', function (req, res) {
+    
+    if (!req.query.campaign_id) {
+        return res.send(400, { message: 'must specify campaign_id to modify goals on that campaign' });
+    }
+    
+    //connect to db
+    data.dbConnectAndExecute(function (err) {
+        if (err) {
+            return res.send(500, { message: "could not connect to database" });
+        }
+        
+        schemas.Campaign.findOne({ _id: req.query.campaign_id }, function (err, result) {
+            
+            if (err) {
+            
+            
+                return res.send(500, err);
+            }
+            
+            return res.send(200, result.goals);
+
+        });
+    });
+
 });
 
 //Get all or a specific subscription given the name

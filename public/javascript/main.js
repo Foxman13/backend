@@ -33,7 +33,7 @@ $(document).ready(function () {
     });
 
     $('.input-list li').click(function (evt) {
-        var chartSourceGoal = new Goal();
+        var chartSourceGoal = new Goal(20, 0, {name: "hashtag", value: "hackdisrupt" }, "&#xe286", "twitter" );
         chart.addSourceGoal(chartSourceGoal);
         //goallist.push(goaln);
         //console.log(goaln);
@@ -84,17 +84,6 @@ $(document).ready(function () {
         // sub name, notifications
         //add item to goallist
         // add a new item to the middle
-
-        var tempName = new Date().getTime() + "__GOAL";
-        var goal = {
-            goal_count: 20,
-            source: $(this).attr('data-id'),
-            inputs: [{ name: 'hashtag', value: '#hashtagvalue' }],
-            name: new Date().getTime() + "__GOAL",
-            continuous_messaging: true
-        }
-
-
 
 
 

@@ -9,6 +9,10 @@
         return this.sourceGoals;
     }
 
+    this.getOutputList = function () {
+        return this.outputs;
+    }
+
     this.initVisualTree = function () {
         var campaignChartDom = '<div class="superProgress">'
         + '<div class="surface">'
@@ -21,7 +25,7 @@
         that.element.innerHTML = (campaignChartDom);
         that.element.className = "campaignChart";
         this.sourceGoals.forEach(that.addSourceGoal, true);
-        this.outputs.forEach(that.pushSubscriptionOutput, true);
+        this.outputs.forEach(that.addSubscriptionOutput, true);
         $(that.element).appendTo($(that.parent));
     };
 
@@ -35,7 +39,7 @@
             that.sourceGoals.push(sourceGoal);
     }
 
-    this.pushSubscriptionOutput = function (subscriptionOutput, update) {
+    this.addSubscriptionOutput = function (subscriptionOutput, update) {
         subscriptionOutput.parent = that.element.querySelector(".outBalls");
         var thisBall = new OutBall(subscriptionOutput);
         subscriptionOutput.uielement = thisBall;
@@ -58,10 +62,10 @@
     }
 
     this.updateBalls = function () {
-        that.outputs.forEach(function (outBall) {
+        that.outputs.forEach(function (output) {
             var timeout = Math.random() * 500;
             setTimeout(function () {
-                outBall.uielement.activate();
+                output.uielement.activate();
             }, timeout)
 
         })
@@ -142,11 +146,10 @@ function SourceBlock(goal) {
     }();
 }
 
-function OutBall(options) {
+function OutBall(subscriptionOutput) {
     var that = this;
-    this.glyph = options.glyph ? options.glyph : "";
-    this.label = options.label ? options.label : "";
-    this.parent = options.parent ? options.parent : null;
+    this.subscriptionOutput = subscriptionOutput ? subscriptionOutput : new SubscriptionOutput();
+    this.parent = subscriptionOutput.parent ? subscriptionOutput.parent : null;
     this.element = document.createElement("div");
 
     this.show = function () {
@@ -181,7 +184,7 @@ function OutBall(options) {
     }
 
     this.initVisualTree = function () {
-        var outBallDom = '<div class="glyph">🐝</div>'
+        var outBallDom = '<div class="glyph">' + that.subscriptionOutput + '</div>'
         that.element = document.createElement("div");
         that.element.innerHTML = (outBallDom);
         that.element.className = "ball";
@@ -192,6 +195,11 @@ function OutBall(options) {
 
 }
 
+function SubscriptionOutput(source, name, goal_met, continuous_messaging) {
+    this.source = source ? source : "source";
+    this.name = name ? name : "name";
+    this.goal_met = goal_met ? goal_met : false;
+}
 
 function Goal(goal_count, current_goal_count, inputs, source, name, continuous_messaging) {
     this.goal_count = goal_count ? goal_count : 100;

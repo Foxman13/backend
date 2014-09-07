@@ -36,12 +36,40 @@ body {
   margin-top: 0px;
 }
 
-/* line 14, ../sass/style.scss */
+/* line 15, ../sass/style.scss */
+.campaign h3, .campaign h2 {
+  color: #a3a3a4;
+}
+/* line 18, ../sass/style.scss */
+.campaign button {
+  float: left;
+  margin-top: 18px;
+}
+/* line 20, ../sass/style.scss */
+.campaign button.btn-default {
+  color: #a3a3a4;
+}
+/* line 27, ../sass/style.scss */
+.campaign h2.create-title {
+  color: #a3a3a4;
+  float: left;
+  text-indent: 10px;
+  text-transform: uppercase;
+  font-size: 18px;
+  line-height: 40px;
+}
+/* line 38, ../sass/style.scss */
+.campaign h3 {
+  text-transform: uppercase;
+  font-size: 18px;
+}
+
+/* line 45, ../sass/style.scss */
 header {
   background-color: #00aaaf;
   height: 200px;
 }
-/* line 17, ../sass/style.scss */
+/* line 48, ../sass/style.scss */
 header h1 {
   margin: 0px;
   color: #fff;
@@ -50,14 +78,14 @@ header h1 {
   line-height: 200px;
 }
 
-/* line 26, ../sass/style.scss */
+/* line 57, ../sass/style.scss */
 .title-inputs {
   background-color: #f0bf08;
   height: 75px;
   border-right: thin white solid;
   border-top: thin white solid;
 }
-/* line 31, ../sass/style.scss */
+/* line 62, ../sass/style.scss */
 .title-inputs h2 {
   color: #fff;
   text-align: center;
@@ -65,13 +93,13 @@ header h1 {
   font-size: 24px;
 }
 
-/* line 39, ../sass/style.scss */
+/* line 70, ../sass/style.scss */
 .title-output {
   background-color: #b21e8d;
   height: 75px;
   border-top: thin white solid;
 }
-/* line 44, ../sass/style.scss */
+/* line 75, ../sass/style.scss */
 .title-output h2 {
   color: #fff;
   text-align: center;
@@ -79,14 +107,14 @@ header h1 {
   font-size: 24px;
 }
 
-/* line 52, ../sass/style.scss */
+/* line 83, ../sass/style.scss */
 .title-campaign {
   border-right: thin white solid;
   border-top: thin white solid;
   background-color: #084ca1;
   height: 75px;
 }
-/* line 58, ../sass/style.scss */
+/* line 89, ../sass/style.scss */
 .title-campaign h2 {
   color: #fff;
   text-align: center;
@@ -94,13 +122,13 @@ header h1 {
   font-size: 24px;
 }
 
-/* line 65, ../sass/style.scss */
+/* line 96, ../sass/style.scss */
 .input-list {
   list-style-type: none;
   margin: 0px;
   -webkit-padding-start: 0px;
 }
-/* line 71, ../sass/style.scss */
+/* line 102, ../sass/style.scss */
 .input-list li {
   cursor: pointer;
   text-transform: uppercase;
@@ -110,7 +138,12 @@ header h1 {
   margin-bottom: 5px;
   border-bottom: thin solid #efefef;
 }
-/* line 80, ../sass/style.scss */
+/* line 111, ../sass/style.scss */
+.input-list li:hover {
+  background-color: #a3a3a4;
+  color: #efefef;
+}
+/* line 115, ../sass/style.scss */
 .input-list li span {
   font-size: 24px;
   width: 25px;
@@ -118,7 +151,7 @@ header h1 {
   margin-top: 22px;
   margin-left: 10px;
 }
-/* line 88, ../sass/style.scss */
+/* line 123, ../sass/style.scss */
 .input-list li h3 {
   text-align: center;
   line-height: 75px;
@@ -128,12 +161,12 @@ header h1 {
   text-indent: 5px;
 }
 
-/* line 102, ../sass/style.scss */
+/* line 137, ../sass/style.scss */
 .socicon {
   font-family: 'socicon' !important;
 }
 
-/* line 107, ../sass/style.scss */
+/* line 142, ../sass/style.scss */
 .socicon {
   position: relative;
   top: 1px;
@@ -145,322 +178,322 @@ header h1 {
   -webkit-font-smoothing: antialiased;
 }
 
-/* line 117, ../sass/style.scss */
+/* line 152, ../sass/style.scss */
 .socicon:empty {
   width: 1em;
 }
 
-/* line 121, ../sass/style.scss */
+/* line 156, ../sass/style.scss */
 .socicon-easid:before {
   content: "5";
 }
 
-/* line 122, ../sass/style.scss */
+/* line 157, ../sass/style.scss */
 .socicon-twitter:before {
   content: "a";
 }
 
-/* line 123, ../sass/style.scss */
+/* line 158, ../sass/style.scss */
 .socicon-facebook:before {
   content: "b";
 }
 
-/* line 124, ../sass/style.scss */
+/* line 159, ../sass/style.scss */
 .socicon-google:before {
   content: "c";
 }
 
-/* line 125, ../sass/style.scss */
+/* line 160, ../sass/style.scss */
 .socicon-pinterest:before {
   content: "d";
 }
 
-/* line 126, ../sass/style.scss */
+/* line 161, ../sass/style.scss */
 .socicon-foursquare:before {
   content: "e";
 }
 
-/* line 127, ../sass/style.scss */
+/* line 162, ../sass/style.scss */
 .socicon-yahoo:before {
   content: "f";
 }
 
-/* line 128, ../sass/style.scss */
+/* line 163, ../sass/style.scss */
 .socicon-skype:before {
   content: "g";
 }
 
-/* line 129, ../sass/style.scss */
+/* line 164, ../sass/style.scss */
 .socicon-yelp:before {
   content: "h";
 }
 
-/* line 130, ../sass/style.scss */
+/* line 165, ../sass/style.scss */
 .socicon-feedburner:before {
   content: "i";
 }
 
-/* line 131, ../sass/style.scss */
+/* line 166, ../sass/style.scss */
 .socicon-linkedin:before {
   content: "j";
 }
 
-/* line 132, ../sass/style.scss */
+/* line 167, ../sass/style.scss */
 .socicon-viadeo:before {
   content: "k";
 }
 
-/* line 133, ../sass/style.scss */
+/* line 168, ../sass/style.scss */
 .socicon-xing:before {
   content: "l";
 }
 
-/* line 134, ../sass/style.scss */
+/* line 169, ../sass/style.scss */
 .socicon-myspace:before {
   content: "m";
 }
 
-/* line 135, ../sass/style.scss */
+/* line 170, ../sass/style.scss */
 .socicon-soundcloud:before {
   content: "n";
 }
 
-/* line 136, ../sass/style.scss */
+/* line 171, ../sass/style.scss */
 .socicon-spotify:before {
   content: "o";
 }
 
-/* line 137, ../sass/style.scss */
+/* line 172, ../sass/style.scss */
 .socicon-grooveshark:before {
   content: "p";
 }
 
-/* line 138, ../sass/style.scss */
+/* line 173, ../sass/style.scss */
 .socicon-lastfm:before {
   content: "q";
 }
 
-/* line 139, ../sass/style.scss */
+/* line 174, ../sass/style.scss */
 .socicon-youtube:before {
   content: "r";
 }
 
-/* line 140, ../sass/style.scss */
+/* line 175, ../sass/style.scss */
 .socicon-vimeo:before {
   content: "s";
 }
 
-/* line 141, ../sass/style.scss */
+/* line 176, ../sass/style.scss */
 .socicon-dailymotion:before {
   content: "t";
 }
 
-/* line 142, ../sass/style.scss */
+/* line 177, ../sass/style.scss */
 .socicon-vine:before {
   content: "u";
 }
 
-/* line 143, ../sass/style.scss */
+/* line 178, ../sass/style.scss */
 .socicon-flickr:before {
   content: "v";
 }
 
-/* line 144, ../sass/style.scss */
+/* line 179, ../sass/style.scss */
 .socicon-500px:before {
   content: "w";
 }
 
-/* line 145, ../sass/style.scss */
+/* line 180, ../sass/style.scss */
 .socicon-instagram:before {
   content: "x";
 }
 
-/* line 146, ../sass/style.scss */
+/* line 181, ../sass/style.scss */
 .socicon-wordpress:before {
   content: "y";
 }
 
-/* line 147, ../sass/style.scss */
+/* line 182, ../sass/style.scss */
 .socicon-tumblr:before {
   content: "z";
 }
 
-/* line 148, ../sass/style.scss */
+/* line 183, ../sass/style.scss */
 .socicon-blogger:before {
   content: "A";
 }
 
-/* line 149, ../sass/style.scss */
+/* line 184, ../sass/style.scss */
 .socicon-technorati:before {
   content: "B";
 }
 
-/* line 150, ../sass/style.scss */
+/* line 185, ../sass/style.scss */
 .socicon-reddit:before {
   content: "C";
 }
 
-/* line 151, ../sass/style.scss */
+/* line 186, ../sass/style.scss */
 .socicon-dribbble:before {
   content: "D";
 }
 
-/* line 152, ../sass/style.scss */
+/* line 187, ../sass/style.scss */
 .socicon-stumbleupon:before {
   content: "E";
 }
 
-/* line 153, ../sass/style.scss */
+/* line 188, ../sass/style.scss */
 .socicon-digg:before {
   content: "F";
 }
 
-/* line 154, ../sass/style.scss */
+/* line 189, ../sass/style.scss */
 .socicon-envato:before {
   content: "G";
 }
 
-/* line 155, ../sass/style.scss */
+/* line 190, ../sass/style.scss */
 .socicon-behance:before {
   content: "H";
 }
 
-/* line 156, ../sass/style.scss */
+/* line 191, ../sass/style.scss */
 .socicon-delicious:before {
   content: "I";
 }
 
-/* line 157, ../sass/style.scss */
+/* line 192, ../sass/style.scss */
 .socicon-deviantart:before {
   content: "J";
 }
 
-/* line 158, ../sass/style.scss */
+/* line 193, ../sass/style.scss */
 .socicon-forrst:before {
   content: "K";
 }
 
-/* line 159, ../sass/style.scss */
+/* line 194, ../sass/style.scss */
 .socicon-play:before {
   content: "L";
 }
 
-/* line 160, ../sass/style.scss */
+/* line 195, ../sass/style.scss */
 .socicon-zerply:before {
   content: "M";
 }
 
-/* line 161, ../sass/style.scss */
+/* line 196, ../sass/style.scss */
 .socicon-wikipedia:before {
   content: "N";
 }
 
-/* line 162, ../sass/style.scss */
+/* line 197, ../sass/style.scss */
 .socicon-apple:before {
   content: "O";
 }
 
-/* line 163, ../sass/style.scss */
+/* line 198, ../sass/style.scss */
 .socicon-flattr:before {
   content: "P";
 }
 
-/* line 164, ../sass/style.scss */
+/* line 199, ../sass/style.scss */
 .socicon-github:before {
   content: "Q";
 }
 
-/* line 165, ../sass/style.scss */
+/* line 200, ../sass/style.scss */
 .socicon-chimein:before {
   content: "R";
 }
 
-/* line 166, ../sass/style.scss */
+/* line 201, ../sass/style.scss */
 .socicon-friendfeed:before {
   content: "S";
 }
 
-/* line 167, ../sass/style.scss */
+/* line 202, ../sass/style.scss */
 .socicon-newsvine:before {
   content: "T";
 }
 
-/* line 168, ../sass/style.scss */
+/* line 203, ../sass/style.scss */
 .socicon-identica:before {
   content: "U";
 }
 
-/* line 169, ../sass/style.scss */
+/* line 204, ../sass/style.scss */
 .socicon-bebo:before {
   content: "V";
 }
 
-/* line 170, ../sass/style.scss */
+/* line 205, ../sass/style.scss */
 .socicon-zynga:before {
   content: "W";
 }
 
-/* line 171, ../sass/style.scss */
+/* line 206, ../sass/style.scss */
 .socicon-steam:before {
   content: "X";
 }
 
-/* line 172, ../sass/style.scss */
+/* line 207, ../sass/style.scss */
 .socicon-xbox:before {
   content: "Y";
 }
 
-/* line 173, ../sass/style.scss */
+/* line 208, ../sass/style.scss */
 .socicon-windows:before {
   content: "Z";
 }
 
-/* line 174, ../sass/style.scss */
+/* line 209, ../sass/style.scss */
 .socicon-outlook:before {
   content: "1";
 }
 
-/* line 175, ../sass/style.scss */
+/* line 210, ../sass/style.scss */
 .socicon-coderwall:before {
   content: "2";
 }
 
-/* line 176, ../sass/style.scss */
+/* line 211, ../sass/style.scss */
 .socicon-tripadvisor:before {
   content: "3";
 }
 
-/* line 177, ../sass/style.scss */
+/* line 212, ../sass/style.scss */
 .socicon-netcodes:before {
   content: "4";
 }
 
-/* line 178, ../sass/style.scss */
+/* line 213, ../sass/style.scss */
 .socicon-lanyrd:before {
   content: "7";
 }
 
-/* line 179, ../sass/style.scss */
+/* line 214, ../sass/style.scss */
 .socicon-slideshare:before {
   content: "8";
 }
 
-/* line 180, ../sass/style.scss */
+/* line 215, ../sass/style.scss */
 .socicon-buffer:before {
   content: "9";
 }
 
-/* line 181, ../sass/style.scss */
+/* line 216, ../sass/style.scss */
 .socicon-rss:before {
   content: ",";
 }
 
-/* line 182, ../sass/style.scss */
+/* line 217, ../sass/style.scss */
 .socicon-vkontakte:before {
   content: ";";
 }
 
-/* line 183, ../sass/style.scss */
+/* line 218, ../sass/style.scss */
 .socicon-disqus:before {
   content: ":";
 }

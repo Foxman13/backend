@@ -9,20 +9,25 @@ block content
      h1="OnOff"
    div(class='row')
     div(class='col-md-3')
-     h2='Inputs'
+     div(class='row title-inputs')
+      h2='Inputs'
      div(class='row')
       ul(class='input-list')
        li
-        span='+'
+        
+        span(class='symbol')!='&#xe286;'
         h3='Twitter'
+        
        li
-        span='+'
+        span(class='symbol')!='&#xe227;'
         h3='Facebook'
+ 
        li
-        span='+'
+        span(class='symbol')!='&#xe227;'
         h3='Stuff'
     div(class='col-md-6 campaign')
-     h2='Campaign'
+     div(class='row title-campaign')
+      h2='Campaign'
        button(class='btn btn-default btn-lg')
          icon(class='glyphicon glyphicon-plus')
        h3='Name Campaign'
@@ -32,7 +37,8 @@ block content
          input#CampaignDescription(class='form-control', type='text', name='campaignDescriptionInput', placeholder='description')
        button#submit(type='submit', class='btn btn-default') submit
     div(class='col-md-3')
-     h2='Output'
+     div(class="row title-output")
+      h2='Output'
      div(class='col-md-4')
       div(class='row')
        ul(class='output-list')

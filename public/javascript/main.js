@@ -6,7 +6,18 @@ $(document).ready(function(){
 	var getCampaigns = function(){
 		
 		$.get( "/api/campaign", function( data ) {
-  			console.log("data")
+  			var cloneNode = $($('.results-list li')[0]).clone();
+  			var len = data.length;
+  			var newHTML = '';
+  			$('.results-list').empty();
+  			for(var i=0;i<len;i++){
+                
+
+                $('.results-list').append(cloneNode);
+  				
+
+  				//$($(node).find('h3')[0]).text(data[i].name);
+  			}
 		})
 	}
 	getCampaigns();

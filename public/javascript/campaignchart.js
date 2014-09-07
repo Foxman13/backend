@@ -125,8 +125,8 @@ function SourceBlock(options) {
         var sourceBlockDom = '<progress value="0"></progress>'
         + '<div class="glyph"></div>'
         + '<div class="srcText">'
-        + '     <div><span>#</span><span class="editable">' + that.filterValue + '</span></div>'
-        + '     <div><span class="editable">' + that.thresholdValue + '</span><span> tweets</span></div>'
+        + '     <div><span>#</span><span class="item-title editable">' + that.filterValue + '</span></div>'
+        + '     <div><span class="item-count editable">' + that.thresholdValue + '</span><span class="item-action"> tweets</span></div>'
         + '  </div>';
 
 

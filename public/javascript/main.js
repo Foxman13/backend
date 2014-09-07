@@ -13,15 +13,8 @@ $(document).ready(function(){
 
 
 
-	var chart = new CampaignChart({ parent: $('.campaign-chart'), sourceGoals: [{
-            glyph: "/images/twitter.png",
-            filterValue: "HackDisrupt",
-            thresholdValue: "2500"
-	}, {
-	    glyph: "/images/twitter.png",
-	    filterValue: "TechCrunch",
-	    thresholdValue: "200"
-	}], outputs: [{}, {}]
+	var chart = new CampaignChart({ parent: $('.campaign-chart'), sourceGoals: [
+       ], outputs: [{}, {}]
 	});
 
 	$('.input-list li').click(function(evt){
@@ -29,8 +22,8 @@ $(document).ready(function(){
 
 		chart.pushSourceGoal({
             glyph: "/images/twitter.png",
-            name: "NameGoal",
-            count: "2500",
+            filterValue: "NameGoal",
+            thresholdValue: "2500",
             source:$(this).attr('data-id')
         });
 

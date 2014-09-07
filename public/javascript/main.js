@@ -36,7 +36,7 @@ $(document).ready(function () {
     });
 
     $('.input-list li').click(function (evt) {
-        var chartSourceGoal = new Goal(20, 0, {name: "hashtag", value: "hackdisrupt" }, "&#xe286", "twitter" );
+        var chartSourceGoal = new Goal(8, 0, {name: "hashtag", value: "hackdisrupt" }, "&#xe286", "twitter" );
         chart.addSourceGoal(chartSourceGoal);
         //goallist.push(goaln);
         //console.log(goaln);
@@ -222,7 +222,7 @@ $(document).ready(function () {
                 }
             });
             **/
-        var chartSourceGoal = new Goal(300, 0, {name: "TC Hackathon", value: "hackdisrupt" }, "&#xe286", "twitter" );
+        var chartSourceGoal = new Goal(8, 0, {name: "TC Hackathon", value: "hackdisrupt" }, "&#xe286", "twitter" );
         var chartOutput = new SubscriptionOutput( );
         chartOutput.name = 'Rocket';
         chartOutput.glyph = 'glyphicon glyphicon-send';
@@ -306,7 +306,7 @@ $(document).ready(function () {
  		 chart3Output.glyph = 'glyphicon glyphicon-phone';
 
  		 var chart3 = new CampaignChart({
- 		     parent: $($('.results-expanded')[1]),
+ 		     parent: $($('.results-expanded')[0]),
  		     sourceGoals: [chart3SourceGoal],
  		     outputs: []
  		 });

@@ -51,6 +51,7 @@
 
     this.updateToRandomValues = function (speed) {
         var done = true;
+
         that.sourceGoals.forEach(function (sourceGoal) {
 
             sourceGoal.uielement.setProgress(sourceGoal.uielement.getProgress() + Math.random() * 0.02);

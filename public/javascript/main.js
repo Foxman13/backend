@@ -35,6 +35,11 @@ $(document).ready(function () {
         outputs: []
     });
 
+    $('.clickAdvance').click(function (evt) {
+        if (listCharts[0])
+            listCharts[0].updateToRandomValues(.1);
+    })
+
     $('.input-list li').click(function (evt) {
         var chartSourceGoal = new Goal(8, 0, {name: "hashtag", value: "hackdisrupt" }, "&#xe286", "twitter" );
         chart.addSourceGoal(chartSourceGoal);
@@ -82,11 +87,6 @@ $(document).ready(function () {
 
         $('.campaign-item').show();
 
-    })
-
-    $('.clickAdvance').click(function () {
-        if (chart)
-            chart.updateToRandomValues();
     })
 
     $('#save').click(function () {

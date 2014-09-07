@@ -41,13 +41,14 @@ $(document).ready(function () {
         //goallist.push(goaln);
         //console.log(goaln);
         evt.stopPropagation();
+        $('.add-chart').text("Add an Output");
 
     })
 
     $('.output-list li').click(function (evt) {
     	var output = $(this).attr('data-id');
         var glyph = $(this).find("icon").attr('class');
-       
+        $('.add-chart').animate({'opacity':0,height:0})
         subcriberlist.push(output);
 
     	 var subcriberobject = {

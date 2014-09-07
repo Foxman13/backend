@@ -10,7 +10,7 @@ mongoose.connection.on('error', function (err) {
 });
 
 ////////////
-//Represents an on/off notification implenmentation 
+//Represents an on/off notification implenmentation - OutBall, 
 ////////////
 var notificationSchema = mongoose.Schema({
     //API to long poll the subscription
@@ -29,7 +29,7 @@ var subscriptionSchema = mongoose.Schema({
 
 
 ////////////
-//Represents a data source plugin implementation
+//Represents a data source plugin implementation - SourceBlock - filtervalue - thresholdvalue
 ////////////
 var sourceSchema = mongoose.Schema({
     //the api that the client will call to increment
@@ -58,6 +58,7 @@ var goalSchema = mongoose.Schema({
 //Highest-level entity
 var campaignSchema = mongoose.Schema({
     name: String,
+    description: String,
     goals: [goalSchema],
     subscribers: [subscriptionSchema]
 });

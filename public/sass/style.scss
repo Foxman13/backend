@@ -2,6 +2,7 @@
 
 @import 'mixins';
 @import 'variables';
+@import 'fonts';
 
 body{
 	
@@ -9,6 +10,60 @@ body{
 	margin-top:0px;
 }
 
+.campaign{
+
+	h3,h2{
+		color:$dark-gray;
+	}
+	button{
+		float:left;
+		&.btn-default{
+			color:$dark-gray;
+		}
+
+		margin-top:18px;
+	}
+	h2{
+		&.create-title{
+			color:$dark-gray;
+			float:left;
+			text-indent:10px;
+			text-transform:uppercase;
+			font-size:18px;
+			line-height:40px;
+
+
+		}
+	}
+	h3{
+		text-transform:uppercase;
+		font-size:18px;
+
+	}
+
+	button{
+		&.submit{
+
+			height:50px;
+			width:200px;
+			background-color:$blue;
+			color:#fff;
+			font-family:'Roboto';
+			text-transform:uppercase;
+			font-weight:700;
+			border:none;
+			&:hover{
+				background-color:$yellow;
+			};
+		}
+
+	}
+}
+
+.campaign-item
+{
+	display:none;
+}
 
 header{
 
@@ -22,41 +77,76 @@ header{
 	}
 	height:200px;
 }
+.title-inputs{
+	background-color:$yellow;
+	height:75px;
+	border-right:thin white solid;
+	border-top:thin white solid;
+	h2{
+		color:#fff;
+		text-align:center;
+		text-transform:uppercase;
+		font-size:24px;
+	}
+}
 
+.title-output{
+	background-color:$pink;
+	height:75px;
+	
+	border-top:thin white solid;
+	h2{
+		color:#fff;
+		text-align:center;
+			text-transform:uppercase;
+		font-size:24px;
+	}
+}
+
+.title-campaign
+{
+	border-right:thin white solid;
+	border-top:thin white solid;
+	background-color:$blue;
+	height:75px;
+	h2{
+		color:#fff;
+		text-align:center;
+		text-transform:uppercase;
+		font-size:24px;
+	}
+}
 .input-list{
 	
 	list-style-type:none;
 	margin:0px;
 	-webkit-padding-start:0px;
-	width:80%;
+
 	li{
 		cursor:pointer;
-		span{
-			display:block;
-			width:50px;
-			font-size:48px;
-			background-color:$dark-gray;
-			@include border-radius(3px);
-			float:left;
-			color:#fff;
-			text-align:center;
-			height:60px;
-			line-height:60px;
-			margin-top:5px;
-			margin-left:5px;
-		}
+		
 		text-transform:uppercase;
 		font-size:16px;
 		color:$dark-gray;
-		
-		@include border-radius(3px);
-		background-color:$light-gray;
-		height:72px;
+		height:70px;
 		margin-bottom:5px;
-
+		border-bottom:thin solid $light-gray;
+		&:hover{
+			background-color:$blue;
+			color:#fff;
+		}
+		span{
+			font-size:24px;
+			width:25px;
+			float:left;
+			margin-top:22px;
+			margin-left:10px;
+			
+		}
 		h3{
 			text-align: center;
-			line-height:72px;
+			line-height:75px;
+			font-size:14px;
 			margin:0px;
 			float:left;
 			text-indent:5px;
@@ -65,3 +155,87 @@ header{
 
 	}
 }
+
+
+.socicon {
+    font-family: 'socicon' !important;
+}
+
+
+.socicon {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'socicon';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+.socicon:empty{
+    width: 1em;
+}
+
+.socicon-easid:before { content: "5"; }
+.socicon-twitter:before { content: "a"; }
+.socicon-facebook:before { content: "b"; }
+.socicon-google:before { content: "c"; }
+.socicon-pinterest:before { content: "d"; }
+.socicon-foursquare:before { content: "e"; }
+.socicon-yahoo:before { content: "f"; }
+.socicon-skype:before { content: "g"; }
+.socicon-yelp:before { content: "h"; }
+.socicon-feedburner:before { content: "i"; }
+.socicon-linkedin:before { content: "j"; }
+.socicon-viadeo:before { content: "k"; }
+.socicon-xing:before { content: "l"; }
+.socicon-myspace:before { content: "m"; }
+.socicon-soundcloud:before { content: "n"; }
+.socicon-spotify:before { content: "o"; }
+.socicon-grooveshark:before { content: "p"; }
+.socicon-lastfm:before { content: "q"; }
+.socicon-youtube:before { content: "r"; }
+.socicon-vimeo:before { content: "s"; }
+.socicon-dailymotion:before { content: "t"; }
+.socicon-vine:before { content: "u"; }
+.socicon-flickr:before { content: "v"; }
+.socicon-500px:before { content: "w"; }
+.socicon-instagram:before { content: "x"; }
+.socicon-wordpress:before { content: "y"; }
+.socicon-tumblr:before { content: "z"; }
+.socicon-blogger:before { content: "A"; }
+.socicon-technorati:before { content: "B"; }
+.socicon-reddit:before { content: "C"; }
+.socicon-dribbble:before { content: "D"; }
+.socicon-stumbleupon:before { content: "E"; }
+.socicon-digg:before { content: "F"; }
+.socicon-envato:before { content: "G"; }
+.socicon-behance:before { content: "H"; }
+.socicon-delicious:before { content: "I"; }
+.socicon-deviantart:before { content: "J"; }
+.socicon-forrst:before { content: "K"; }
+.socicon-play:before { content: "L"; }
+.socicon-zerply:before { content: "M"; }
+.socicon-wikipedia:before { content: "N"; }
+.socicon-apple:before { content: "O"; }
+.socicon-flattr:before { content: "P"; }
+.socicon-github:before { content: "Q"; }
+.socicon-chimein:before { content: "R"; }
+.socicon-friendfeed:before { content: "S"; }
+.socicon-newsvine:before { content: "T"; }
+.socicon-identica:before { content: "U"; }
+.socicon-bebo:before { content: "V"; }
+.socicon-zynga:before { content: "W"; }
+.socicon-steam:before { content: "X"; }
+.socicon-xbox:before { content: "Y"; }
+.socicon-windows:before { content: "Z"; }
+.socicon-outlook:before { content: "1"; }
+.socicon-coderwall:before { content: "2"; }
+.socicon-tripadvisor:before { content: "3"; }
+.socicon-netcodes:before { content: "4"; }
+.socicon-lanyrd:before { content: "7"; }
+.socicon-slideshare:before { content: "8"; }
+.socicon-buffer:before { content: "9"; }
+.socicon-rss:before { content: ","; }
+.socicon-vkontakte:before { content: ";"; }
+.socicon-disqus:before { content: ":"; }

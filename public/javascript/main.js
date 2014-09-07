@@ -1,23 +1,46 @@
 $(document).ready(function(){
-	
+	var goallist = [];
+
 	$('.input-list li').click(function(evt){
+		//add item to goallist
 		// add a new item to the middle
-		console.log("these have been fired");
+		var goaln = $(this).attr('data-id');
+		goallist.push(goaln);
+		//console.log(goaln);
 		evt.stopPropagation();
+		console.log(goallist);
+	})
+
+
+	$('.add-button').click(function(){
+
+		$('.campaign-item').show();
 
 	})
 
-	$('#submit-campaign').click(function(evt){
-		//add a new Campaign...Need to connect this to the backend somehow...
-//		$.post("/", function( data ) {
+	$('#save').click(function(){
+		var des = $('#campaigndescription').val();
+		var cname = $('#campaignname').val();
+		//var goallist;
+		//for loop of goals that are selected
 
-		console.log($('#campaigndescription').val());
-//	    })
-//		console.log("submit clicked");
-//		evt.stopPropagation();
+		//for loop of subs/notifications
+
+		console.log(val);
+
+		$.ajax({
+		  type: "POST",
+		  url: '/api/campaign',
+		  data: {name: cname, description:des, goals:goallist, },
+		  success: function(result){
+
+	  		console.log(result);
+
+		  },
+		  error: function(err){
+		  	console.log(err);
+		  }
+		});
 	})
-
-	$.get("/api/campaign", function( data ) {
-	  console.log(data);
-	});
 })
+

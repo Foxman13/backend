@@ -9,33 +9,42 @@ block content
      h1="OnOff"
    div(class='row')
     div(class='col-md-3')
-     h2='Inputs'
+     div(class='row title-inputs')
+      h2='Inputs'
      div(class='row')
       ul(class='input-list')
-       li
-        span='+'
+       li(data-id='Twitter')
+        
+        span(class='symbol')!='&#xe286;'
         h3='Twitter'
+        
        li
-        span='+'
+        span(class='symbol')!='&#xe227;'
         h3='Facebook'
+ 
        li
-        span='+'
+        span(class='symbol')!='&#xe227;'
         h3='Stuff'
     div(class='col-md-6 campaign')
-     h2='Campaign'
-       button(class='btn btn-default btn-lg')
+     div(class='row title-campaign')
+      h2='Campaign'
+     div(class='row')
+      div(class='col-md-10 col-md-offset-1')
+       div(class='row')
+        button(class='add-button btn btn-default btn-lg')
          icon(class='glyphicon glyphicon-plus')
-       h3='New Campaign'
-       div#submit-campaign(class='form-group', name='newCampaign', action='/addnewcampaign', method='post')
+        h2(class='create-title')='Create a new Campaign'
+       div(class='row campaign-item')
+        h3='Name Campaign'
+        div#submit-campaign(class='form-group', name='newCampaign', action='/addnewcampaign', method='post')
          h4='Campaign Name'
          input#campaignname(class='form-control', type='text', name='campaignNameInput', placeholder='campaign name')
          h4='Campaign Description'
          input#campaigndescription(class='form-control', type='text', name='campaignDescriptionInput', placeholder='description')
-         button#submit(type='submit', class='btn btn-default') submit
-     h2='Current Campaigns'
-
+         button#save(type='submit', class='btn btn-default') save
     div(class='col-md-3')
-     h2='Output'
+     div(class="row title-output")
+      h2='Output'
      div(class='col-md-4')
       div(class='row')
        ul(class='output-list')

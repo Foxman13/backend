@@ -2,6 +2,7 @@ $(document).ready(function () {
     var goallist = [];
     var subcriberlist = [];
 	
+	var listCharts=[];
 	var getCampaigns = function(){
 		
 		$.get( "/api/campaign", function( data ) {
@@ -26,6 +27,8 @@ $(document).ready(function () {
 	}
 	getCampaigns();
 
+	initializeListItems();
+
     var chart = new CampaignChart({
         parent: $('.campaign-chart'),
         sourceGoals: [],
@@ -44,8 +47,7 @@ $(document).ready(function () {
     $('.output-list li').click(function (evt) {
     	var output = $(this).attr('data-id');
         var glyph = $(this).find("icon").attr('class');
-        console.log(glyph);
-        console.log(output);
+       
         subcriberlist.push(output);
 
     	 var subcriberobject = {
@@ -129,14 +131,36 @@ $(document).ready(function () {
 
 
     $('.results-list li').click(function (evt) {
+
+
         if ($(this).hasClass('selected')) {
             $(this).removeClass('selected')
+            
+            
         } else {
 
             $(this).addClass('selected')
+            
         }
     })
 
+
+    function initializeListItems()
+    {
+    	var chartSourceGoal = new Goal(20, 0, {name: "hashtag", value: "hackdisrupt" }, "&#xe286", "twitter" );
+    	var chartSourceGoal2 = new Goal(20, 0, {name: "hashtag", value: "hackdisrupt" }, "&#xe286", "twitter" );
+        var chartOutput = new SubscriptionOutput( );
+        chartOutput.name = 'Rocket';
+        chartOutput.glyph = 'glyphicon glyphicon-send';
+        
+ 		 var subchart = new CampaignChart({
+        		parent: $($('.results-expanded')[1]),
+        		sourceGoals: [chartSourceGoal,chartSourceGoal2],
+        		outputs: []
+    		});
+         subchart.addSubscriptionOutput(chartOutput);
+ 			 listCharts.push(subchart);
+    }
 
 
 })

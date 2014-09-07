@@ -68,6 +68,9 @@ $(document).ready(function () {
         //for loop of goals that are selected
 
         //for loop of subs/notifications
+        
+        //HACK Start our twitter notification provider
+        $.post('http://localhost:3000/api/campaign/goals/start?campaign_id=540b917272c24af80fe8c226');
 
         //goal name, source, count, 
         //source inputs, name, description

@@ -19,6 +19,25 @@ body{
 	height:100%;
 }
 
+.goal-txt{
+	font-size:32px;
+	
+	color:$dark-gray;
+	font-weight:300;
+	margin-bottom:0px;
+}
+.goal-threshold{
+	color:$dark-gray;
+	margin:0px;
+
+}
+
+.heavy{
+	font-weight:700;
+	text-transform:uppercase;
+}
+
+
 .campaign{
 
 	h3,h2{
@@ -53,7 +72,7 @@ body{
 
 			height:50px;
 			width:200px;
-			background-color:$blue;
+			background-color:$turq;
 			color:#fff;
 			font-family:'Roboto';
 			text-transform:uppercase;

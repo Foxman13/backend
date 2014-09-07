@@ -84,7 +84,7 @@ $(document).ready(function () {
         var goal = {
             goal_count: 20,
             source: $(this).attr('data-id'),
-            inputs: [{ name: 'hashtag', value: '#hashtagvalue' }],
+            inputs: [{ name: 'hashtag', value: 'hashtagvalue' }],
             name: new Date().getTime() + "__GOAL",
             continuous_messaging: true
         }

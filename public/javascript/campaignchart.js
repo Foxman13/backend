@@ -128,9 +128,9 @@ function SourceBlock(goal) {
         var sourceBlockDom = '<progress value="' + that.goal.current_goal_count + '"></progress>'
         + '<div class="glyph">' + that.goal.source + '</div>'
         + '<div class="srcText">'
-        + '     <div><span>Goal: </span><span class="editable">' + that.goal.inputs.name + '</span></div>'
-        + '     <div><span>#</span><span class="editable">' + that.goal.inputs.value + '</span></div>'
-        + '     <div><span class="editable">' + that.goal + '</span><span> tweets</span></div>'
+        + '     <div class="goal-txt"><span class="heavy">Goal: </span><span class="editable">' + that.goal.inputs.name + '</span></div>'
+        + '     <div class="goal-threshold"><span>#</span><span class="editable">' + that.goal.inputs.value + '</span></div>'
+        + '     <div class="item-count"><span class="editable">' + that.goal.goal_count + '</span><span> tweets</span></div>'
         + '  </div>';
 
         that.element = document.createElement("div");
@@ -204,7 +204,7 @@ function SubscriptionOutput(source, name, goal_met, continuous_messaging) {
 function Goal(goal_count, current_goal_count, inputs, source, name, continuous_messaging) {
     this.goal_count = goal_count ? goal_count : 100;
     this.current_goal_count = current_goal_count ? current_goal_count : 0;
-    this.inputs = inputs ? inputs : { name: "hashtag", value: "#threshold" };
+    this.inputs = inputs ? inputs : { name: "hashtag", value: "threshold" };
     this.source = source ? source : "";
     this.name = name ? name : new Date().getTime() + "__GOAL";
     this.continuous_messaging = continuous_messaging ? continuous_messaging : true;

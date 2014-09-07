@@ -177,6 +177,8 @@ body{
 header{
 
 	background-color:#00aeef;
+	width:100%;
+	float:left;
 	h1{
 		margin:0px;
 		color:#fff;
@@ -184,7 +186,7 @@ header{
 		font-size:48px;
 		line-height:200px;
 	}
-	height:200px;
+	height:205px;
 	.header-image{
 		width:300px;
 		height:182px;
@@ -192,6 +194,13 @@ header{
 
 	}
 	
+}
+
+.add-chart{
+	font-size:32px;
+	color:$dark-gray;
+	text-align:center;
+	font-weight:300;
 }
 .title-inputs{
 	/*background-color:$yellow;*/

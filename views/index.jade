@@ -1,17 +1,16 @@
 extends layout
 
 block content
-
- 
+  header(class='clickAdvance')
+   div(class='header-image')
+    img(src='/assets/Notifly_resized01.png')
   div(class ='container')
    div(class='row')
-    header(class='clickAdvance')
-     div(class='header-image')
-      img(src='/assets/Notifly_resized01.png')
+  
    div(class='row')
     div(class='col-md-2')
      div(class='row title-inputs')
-      h2='Inputs'
+      h2='Feeds'
      div(class='row')
       ul(class='input-list')
        li(data-id='Twitter')
@@ -23,9 +22,18 @@ block content
         span(class='symbol')!='&#xe227;'
         h3='Facebook'
  
-       li(data-id='Stuff')
-        span(class='symbol')!='&#xe227;'
-        h3='Stuff'
+       li(data-id='Instagram')
+        span(class='symbol')!='&#xe300;'
+        h3='Instagram'
+
+       li(data-id='Pintrest')
+        span(class='symbol')!='&#xe264;'
+        h3='Pintrest'
+
+       li(data-id='Bing')
+        span(class='symbol')!='&#xe210;'
+        h3='Bing'
+
     div(class='col-md-7 campaign')
      div(class='row title-campaign')
       h2='Campaign'
@@ -42,9 +50,9 @@ block content
          input#campaignname(class='form-control', type='text', name='campaignNameInput', placeholder='campaign name')
          h4='Campaign Description'
          input#campaigndescription(class='form-control', type='text', name='campaignDescriptionInput', placeholder='description')
-         
-         button#save(type='submit', class='submit btn btn-default') save
+        div(class='add-chart')='Add an Input'
         div(class='campaign-chart')
+        button#save(type='submit', class='submit btn btn-default') save
        div(class='row')
         div#results
          hr
@@ -76,7 +84,7 @@ block content
     div(class='col-md-3')
 
      div(class="row title-output")
-      h2='Output'
+      h2='Actions'
      div(class='row')
        ul(class='output-list')
         li(data-id='SMS')
@@ -87,7 +95,19 @@ block content
          h3='Shoot a Rocket'
         li(data-id='Meter')
          icon(class='glyphicon glyphicon-fire')
-         h3='Light it on Fire'
+         h3='Start Fireplace'
+        li(data-id='Gauge')
+         icon(class='glyphicon glyphicon-dashboard')
+         h3='Update Gauge'
+        li(data-id='Email')
+         icon(class='glyphicon glyphicon-envelope')
+         h3='Send an Email'
+        li(data-id='Light')
+         icon(class='glyphicon glyphicon-flash')
+         h3='Turn on Light'
+        li(data-id='Tweet')
+         icon(class='glyphicon glyphicon-cloud')
+         h3='Send a Tweet'
 
 
 

@@ -41,12 +41,39 @@ $(document).ready(function () {
         //goallist.push(goaln);
         //console.log(goaln);
         evt.stopPropagation();
+        $('.add-chart').text("Add an Output");
 
     })
 
     $('.output-list li').click(function (evt) {
+
+    	var output = $(this).attr('data-id');
+        var glyph = $(this).find("icon").attr('class');
+        $('.add-chart').animate({'opacity':0,height:0})
+        subcriberlist.push(output);
+
+    	 var subcriberobject = {
+            name: output,
+            notifications: output,
+            glyph: glyph
+        };
+        var chartOutput = new SubscriptionOutput( );
+        chartOutput.name = output;
+        chartOutput.glyph = glyph;
+        chart.addSubscriptionOutput(chartOutput);
+
+   
+
+        
+       
+        subcriberlist.push(subcriberobject);
+
+        
+       
+        /*
         var chartOutput = new SubscriptionOutput($(this).attr('data-id'));
         chart.addSubscriptionOutput(chartOutput) 
+		*/
 
     })
 
@@ -65,18 +92,25 @@ $(document).ready(function () {
     $('#save').click(function () {
         var des = $('#campaigndescription').val();
         var cname = $('#campaignname').val();
-        //for loop of goals that are selected
 
+        $('.campaign-item').hide();
+       $("html, body").animate({ scrollTop: 0 }, "slow");
+        //for loop of goals that are selected
+        var goallist = chart.getGoalList();
         //for loop of subs/notifications
         
         //HACK Start our twitter notification provider
         $.post('http://localhost:3000/api/campaign/goals/start?campaign_id=540b917272c24af80fe8c226');
+
 
         //goal name, source, count, 
         //source inputs, name, description
         // sub name, notifications
         //add item to goallist
         // add a new item to the middle
+
+
+
         var des = $('#campaigndescription').val();
         var cname = $('#campaignname').val();
         //for loop of goals that are selected
@@ -188,9 +222,25 @@ $(document).ready(function () {
                 }
             });
             **/
+        var chartSourceGoal = new Goal(300, 0, {name: "TC Hackathon", value: "hackdisrupt" }, "&#xe286", "twitter" );
+        var chartOutput = new SubscriptionOutput( );
+        chartOutput.name = 'Rocket';
+        chartOutput.glyph = 'glyphicon glyphicon-send';
+        var chartOutput2 = new SubscriptionOutput();
+        chartOutput2.name = 'Gauge';
+        chartOutput2.glyph = 'glyphicon glyphicon-dashboard';
+        
+ 		 var chart1 = new CampaignChart({
+        		parent: $($('.results-expanded')[1]),
+        		sourceGoals: [chartSourceGoal],
+        		outputs: []
+    		});
+ 		 chart1.addSubscriptionOutput(chartOutput);
+ 		 chart1.addSubscriptionOutput(chartOutput2);
+
+ 		 listCharts.unshift(chart1);
         }
     })
-
 
 
 
@@ -211,7 +261,7 @@ $(document).ready(function () {
 
     function initializeListItems()
     {
-    	var chartSourceGoal = new Goal(300, 0, {name: "hashtag", value: "techcrunch" }, "&#xe286", "twitter" );
+    	var chartSourceGoal = new Goal(300, 0, {name: "TC Buzz", value: "techcrunch" }, "&#xe286", "twitter" );
         var chartOutput = new SubscriptionOutput( );
         chartOutput.name = 'Rocket';
         chartOutput.glyph = 'glyphicon glyphicon-send';
@@ -243,6 +293,22 @@ $(document).ready(function () {
  		 chart2.addSubscriptionOutput(chart2Output);
 
  		 listCharts.push(chart2);
+
+
+
+ 		 var chart3SourceGoal = new Goal(6000, 0, { name: "IOT", value: "IoT" }, "&#xe410", "bing");
+ 		 var chart3Output = new SubscriptionOutput();
+ 		 chart3Output.name = 'SMS';
+ 		 chart3Output.glyph = 'glyphicon glyphicon-phone';
+
+ 		 var chart3 = new CampaignChart({
+ 		     parent: $($('.results-expanded')[1]),
+ 		     sourceGoals: [chart3SourceGoal],
+ 		     outputs: []
+ 		 });
+ 		 chart3.addSubscriptionOutput(chart3Output);
+
+ 		 listCharts.push(chart3);
 
          listCharts.forEach(function (chart) {
              var randInterval = 1200 * Math.random() + 250;

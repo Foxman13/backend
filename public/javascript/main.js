@@ -2,9 +2,17 @@ $(document).ready(function(){
 	var goallist = [];
 	var subcriberlist = [];
 
+
 	$.get('/api/campaign', function(data){
 		console.log(data);
 	})
+
+
+	var chart = new CampaignChart({ parent: $('.campaign-chart'), sourceGoals: [{
+            glyph: "/images/twitter.png",
+            filterValue: "HackDisrupt",
+            thresholdValue: "2500"
+        }], outputs: [] });
 
 	$('.input-list li').click(function(evt){
 		//add item to goallist

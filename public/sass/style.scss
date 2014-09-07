@@ -48,8 +48,8 @@ body{
 
 	}
 
-	button{
-		&.submit{
+	#save
+	{
 
 			height:50px;
 			width:200px;
@@ -62,7 +62,7 @@ body{
 			&:hover{
 				background-color:$yellow;
 			};
-		}
+		
 
 	}
 
@@ -71,6 +71,13 @@ body{
 		color:$turq;
 	}
 	icon{
+		color:$dark-gray;
+	}
+}
+
+.form-group
+{
+	h4{
 		color:$dark-gray;
 	}
 }

@@ -1,8 +1,11 @@
 ﻿var Twit = require('twit')
 var oauth = require('oauth');
 var express = require('express');
-var router = express.Router();
-
+var mongoose = require('mongoose');
+var data = require('../data/data');
+var schemas = require('../data/mongooseSchemas');
+var unirest = require('unirest');
+var db = mongoose.connection;
 var twitter = new Twit({
     consumer_key: process.env.TwitterConsumerKey,
     consumer_secret: process.env.TwitterConsumerSecret,
@@ -10,62 +13,118 @@ var twitter = new Twit({
     access_token_secret: process.env.TwitterAccessTokenSecret
 })
 
-function consumer() {
-    if (process.env.Location === "Development") {
-        return new oauth.OAuth(
-        "https://twitter.com/oauth/request_token", "https://twitter.com/oauth/access_token", 
-        _twitterConsumerKey, _twitterConsumerSecret, "1.0A", "http://dxdisrupt-dev.azurewebsites.net/", "HMAC-SHA1");
-    }
-    else if (process.env.Location === "Production") {
-        function consumer() {
-            return new oauth.OAuth(
-        "https://twitter.com/oauth/request_token", "https://twitter.com/oauth/access_token", 
-        _twitterConsumerKey, _twitterConsumerSecret, "1.0A", "http://dxdisrupt-dev.azurewebsites.net/", "HMAC-SHA1");
-        }
-    }
-    else if (process.env.Location === "Local") {
-    
-        function consumer() {
-            return new oauth.OAuth(
-        "https://twitter.com/oauth/request_token", "https://twitter.com/oauth/access_token", 
-        _twitterConsumerKey, _twitterConsumerSecret, "1.0A", "http://badgestar.com/sessions/callback", "HMAC-SHA1");
+module.exports = function () {
+    this.isRunning = false;
+    this.run = function (goal, campaign_id, subscribers, callback) {
+        
+        var hashtag = null;
+        
+        for (var i in goal.inputs) {
+        
+            if (goal.inputs[i].name == "hashtag") {
+            
+                hashtag = goal.inputs[i].value;
+            
             }
-    
-    }
-}
-
-router.use('/auth', function (req, res) {
-    
-    consumer().getOAuthRequestToken(function (error, oauthToken, oauthTokenSecret, results) {
-        if (error) {
-            res.send("Error getting OAuth request token : " + sys.inspect(error), 500);
-        } else {
-            req.session.oauthRequestToken = oauthToken;
-            req.session.oauthRequestTokenSecret = oauthTokenSecret;
-            res.redirect("https://twitter.com/oauth/authorize?oauth_token=" + req.session.oauthRequestToken);
+        
         }
-    });
+        
+        if (!hashtag) {
+            return callback('Expected the hashtag input field -- Plugin Failed');
+        }
 
-});
+        //
+        //  filter the twitter public stream by the word 'mango'.
+        //
+        var stream = twitter.stream('statuses/filter', { track: 'mango' })
+        
+        stream.on('tweet', function (tweet) {
+            
+            if (!this.isRunning) {
+            
+                data.dbConnectAndExecute(function (err) {
+                    
+                    if (err) {
+                        stream.handleDisconnect();
+                    }
+                    schemas.Campaign.findOne({ _id: campaign_id }, function (err, entity) {
+                        
+                        for (var i in entity.goals) {
+                            if (entity.goals[i].name == goal.name) {
+                                
+                                entity.goals[i].isRunning = true;
+                                entity.save(function (err, data) {
+                                    console.error('could not save to database');
+                                });
+                            }
+                        }
+                        entity.lastTaskMessage = "Twitter stream is running normally"
+                    });
+                
+                });
+            
+            }
+            this.isRunning = true;
+            console.log(tweet);
 
-router.use('/auth/callback', function (req, res) {
-    
-    res.render(index, { title: 'Express' });
-});
+            for (var c in subscribers) {
+                for (z in subscribers[c].notifications) {
+                
+                    var notification = subscribers[c].notifications[z]
+                    
+                    //notify subscribers 
+                    if (notification.type == "SparkIo") {
+                        
+                        
+                        unirest.post(notification.endpoint)
+                        .send(notification.inputs[0].name + '=' + notification.inputs[0].value)
+                        .send(notification.inputs[1].name + '=' + notification.inputs[1].value)
+                        .end(function (response) {
+                            console.log('sent sparkio notification!');
+                             console.log(response.body);
+                        });
 
-module.exports = router;
-module.exports.run = function (input, callback) {
-    
-    if (!input.hashtag) {
-    
-        new oauth.OAuth(
-        "https://twitter.com/oauth/request_token", "https://twitter.com/oauth/access_token", 
-        _twitterConsumerKey, _twitterConsumerSecret, "1.0A", "http://badgestar.com/sessions/callback", "HMAC-SHA1");   
-    
+                    }
+                }
+            }
+        }.bind(this))
+        stream.on('limit', function (limitMessage) {
+            console.log(limitMessage);
+        })
+        stream.on('disconnect', function (disconnectMessage) {
+            
+            if (this.isRunning) {
+                
+                data.dbConnectAndExecute(function (err) {
+                    
+                    if (err) {
+                        stream.handleDisconnect();
+                    }
+                    schemas.Campaign.findOne({ _id: input.campaign_id }, function (err, entity) {
+                        
+                        for (var i in input.goals) {
+                            if (input.goals[i]._id == goal._id) {
+                            
+                                input.goals[i].isRunning = false;
+                                input.goals[i].isRunning.lastTaskMessage = "Twitter stream has stopped - " + err;
+                            }
+                        }
+                        
+                    });
+                
+                });
+            
+            }
+
+            this.isRunning = false;
+            stream = twitter.stream('statuses/filter', { track: hashtag })
+        });
+        
+        stream.on('error', function (err) {
+            
+            //try to connect again
+            stream = twitter.stream('statuses/filter', { track: hashtag })
+        });
     }
-    
-    twitter.get('search/tweets', { q: '# since:2011-11-11', count: 100 }, function (err, data, response) {
-        console.log(data)
-    })        
 
 }

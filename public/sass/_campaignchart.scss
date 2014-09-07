@@ -137,7 +137,8 @@
         
         height: 60px;
         border-radius: 30px 30px 30px 30px;
-        background-color: rgba(0, 128, 0, 0.4);
+        background-color:$dark-gray;
+
         margin-left: 20px;
         display: -ms-grid;
         -ms-grid-rows: 1fr;
@@ -146,6 +147,12 @@
         transition: opacity ease 400ms, transform ease-out 300ms;
         transform: translateY(-30px);
         opacity: 0;
+        icon{
+            color:#fff;
+            font-size:30px;
+            display:block;
+            margin-top:0px;
+        }
     }
 
 

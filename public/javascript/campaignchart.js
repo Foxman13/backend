@@ -148,6 +148,7 @@ function SourceBlock(goal) {
 
 function OutBall(subscriptionOutput) {
     var that = this;
+    console.log(subscriptionOutput)
     this.subscriptionOutput = subscriptionOutput ? subscriptionOutput : new SubscriptionOutput();
     this.parent = subscriptionOutput.parent ? subscriptionOutput.parent : null;
     this.element = document.createElement("div");
@@ -184,7 +185,8 @@ function OutBall(subscriptionOutput) {
     }
 
     this.initVisualTree = function () {
-        var outBallDom = '<div class="glyph">' + that.subscriptionOutput + '</div>'
+        
+        var outBallDom = '<div><icon class="' + that.subscriptionOutput.glyph + '"/></div>'
         that.element = document.createElement("div");
         that.element.innerHTML = (outBallDom);
         that.element.className = "ball";

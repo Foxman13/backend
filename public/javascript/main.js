@@ -9,11 +9,11 @@ $(document).ready(function () {
   			var cloneNode = $($('.results-list li')[0]).clone();
   			var len = data.length;
   			var newHTML = '';
-  			$('.results-list').empty();
+  			//$('.results-list').empty();
   			for(var i=0;i<len;i++){
                 
 
-                $('.results-list').append(cloneNode);
+               // $('.results-list').append(cloneNode);
   				
 
   				//$($(node).find('h3')[0]).text(data[i].name);
@@ -42,19 +42,28 @@ $(document).ready(function () {
     })
 
     $('.output-list li').click(function (evt) {
-        var chartOutput = new SubscriptionOutput();
-        chart.addSubscriptionOutput(chartOutput);
-
-        var output = $(this).attr('data-id');
+    	var output = $(this).attr('data-id');
+        var glyph = $(this).find("icon").attr('class');
+        console.log(glyph);
+        console.log(output);
         subcriberlist.push(output);
 
-
-        var subcriberobject = {
-            name: $(this).attr('data-id'),
-            notifications: $(this).attr('data-id')
+    	 var subcriberobject = {
+            name: output,
+            notifications: output,
+            glyph: glyph
         };
+        var chartOutput = new SubscriptionOutput( );
+        chartOutput.name = output;
+        chartOutput.glyph = glyph;
+        chart.addSubscriptionOutput(chartOutput);
+
+   
+
+        
+       
         subcriberlist.push(subcriberobject);
-        console.log(subcriberlist);
+
         
        
 

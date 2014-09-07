@@ -19,6 +19,27 @@ body{
 	height:100%;
 }
 
+.goal-txt{
+	font-size:18px;
+	
+	color:$dark-gray;
+	font-weight:300;
+	margin-bottom:0px;
+}
+.goal-threshold{
+	color:$dark-gray;
+	margin:0px;
+
+}
+
+
+
+.heavy{
+	font-weight:700;
+	text-transform:uppercase;
+}
+
+
 .campaign{
 
 	h3,h2{
@@ -53,7 +74,7 @@ body{
 
 			height:50px;
 			width:200px;
-			background-color:$blue;
+			background-color:$turq;
 			color:#fff;
 			font-family:'Roboto';
 			text-transform:uppercase;
@@ -92,6 +113,7 @@ body{
 		border-top:thin solid #efefef;
 		border-bottom:thin solid #efefef;
 		min-height:60px;
+		cursor:pointer;
 		h3{
 			font-weight:300;
 		}
@@ -117,18 +139,18 @@ body{
  			
 			.open-btn{
 				transform: rotate(90deg);
-				-webkit-transition: 1s ease-in-out;
-    			-moz-transition: 1s ease-in-out;
-    			-o-transition: 1s ease-in-out;
-    			transition: 1s ease-in-out;
+				-webkit-transition: 0.5s ease-in-out;
+    			-moz-transition: 0.5s ease-in-out;
+    			-o-transition: 0.5s ease-in-out;
+    			transition: 0.5s ease-in-out;
 			}
 
 			.results-expanded{
 				height:400px;
-				-webkit-transition: 1s ease-in-out;
-    			-moz-transition: 1s ease-in-out;
-    			-o-transition: 1s ease-in-out;
-    			transition: 1s ease-in-out;
+				-webkit-transition: 0.5s ease-in-out;
+    			-moz-transition: 0.5s ease-in-out;
+    			-o-transition: 0.5s ease-in-out;
+    			transition: 0.5s ease-in-out;
 			}
 		}
 	}
@@ -154,7 +176,7 @@ body{
 
 header{
 
-	background-color:$turq;
+	background-color:#00aeef;
 	h1{
 		margin:0px;
 		color:#fff;
@@ -163,6 +185,13 @@ header{
 		line-height:200px;
 	}
 	height:200px;
+	.header-image{
+		width:300px;
+		height:182px;
+		margin:20px auto;
+
+	}
+	
 }
 .title-inputs{
 	/*background-color:$yellow;*/

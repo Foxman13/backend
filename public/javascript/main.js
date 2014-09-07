@@ -76,16 +76,16 @@ $(document).ready(function () {
         var des = $('#campaigndescription').val();
         var cname = $('#campaignname').val();
         //for loop of goals that are selected
-
+        var goallist = chart.getGoalList();
         //for loop of subs/notifications
+        var subscriptionlist = chart.getOutputList();
 
         //goal name, source, count, 
         //source inputs, name, description
         // sub name, notifications
         //add item to goallist
         // add a new item to the middle
-
-        var tempName = new Date().getTime() + "__GOAL";
+/*        var tempName = new Date().getTime() + "__GOAL";
         var goal = {
             goal_count: 20,
             source: $(this).attr('data-id'),
@@ -94,14 +94,13 @@ $(document).ready(function () {
             continuous_messaging: true
         }
 
+*/
 
-
-
-
-        $.ajax({
-            type: "POST",
+		var jsonobject =
+		{
+			type: "POST",
             url: '/api/campaign',
-            data: { name: cname, description: des, goals: goallist, subscribers: subcriberlist },
+            data: { name: cname, description: des, goals: goallist, subscribers: subcriberlist},
             success: function (result) {
 
                 console.log(result);
@@ -110,8 +109,11 @@ $(document).ready(function () {
             error: function (err) {
                 console.log(err);
             }
-        });
-    })
+            
+        }
+
+        $.ajax(jsonobject);
+    });
 
 
 

@@ -31,15 +31,15 @@ block content
      div(class='row')
       div(class='col-md-10 col-md-offset-1')
        div(class='row')
-        button(class='btn btn-default btn-lg')
+        button(class='add-button btn btn-default btn-lg')
          icon(class='glyphicon glyphicon-plus')
         h2(class='create-title')='Create a new Campaign'
-       div(class='row')
+       div(class='row campaign-item')
         h3='Name Campaign'
         div(class='form-group')
           input#CampaignName(class='form-control', type='text', name='campaignNameInput', placeholder='campaign name')
         div(class='form-group')
-          input#CampaignDescription(class='form-control', type='text', name='campaignDescriptionInput', placeholder='description')
+          input#CampaignDescription(class='form-control', type='text', name='campaignDescriptionInput', placeholder='description')="default stacey text"
         button#submit(type='submit', class='submit btn btn-default') submit
     div(class='col-md-3')
      div(class="row title-output")

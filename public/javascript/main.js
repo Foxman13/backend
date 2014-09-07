@@ -6,4 +6,16 @@ $(document).ready(function(){
 		evt.stopPropagation();
 
 	})
+
+	$('.add-button').click(function(){
+
+		$('.campaign-item').show();
+
+	})
+
+	$('.submit').click(function(){
+
+		var val = $('#CampaignDescription').val();
+		console.log(val);
+	})
 })

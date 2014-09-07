@@ -26,13 +26,10 @@ $(document).ready(function () {
 	}
 	getCampaigns();
 
-    var goal1 = new Goal();
-    var goal2 = new Goal();
-
     var chart = new CampaignChart({
         parent: $('.campaign-chart'),
-        sourceGoals: [goal1, goal2],
-        outputs: [{}, {}]
+        sourceGoals: [],
+        outputs: []
     });
 
     $('.input-list li').click(function (evt) {
@@ -45,6 +42,8 @@ $(document).ready(function () {
     })
 
     $('.output-list li').click(function (evt) {
+        var chartOutput = new SubscriptionOutput();
+        chart.addSubscriptionOutput(chartOutput);
 
         var output = $(this).attr('data-id');
         subcriberlist.push(output);
@@ -56,6 +55,8 @@ $(document).ready(function () {
         };
         subcriberlist.push(subcriberobject);
         console.log(subcriberlist);
+        
+       
 
     })
 
@@ -64,6 +65,11 @@ $(document).ready(function () {
 
         $('.campaign-item').show();
 
+    })
+
+    $('.clickAdvance').click(function () {
+        if (chart)
+            chart.updateToRandomValues();
     })
 
     $('#save').click(function () {

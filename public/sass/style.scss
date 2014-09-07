@@ -75,14 +75,51 @@ body{
 		height:60px;
 		border-top:thin solid #efefef;
 		border-bottom:thin solid #efefef;
+		.open-btn{
+             transform: rotate(0deg);
+             margin-top:15px;
+             -webkit-transition: 1s ease-in-out;
+    			-moz-transition: 1s ease-in-out;
+    			-o-transition: 1s ease-in-out;
+    			transition: 1s ease-in-out;
+		}
+		.results-expanded{
+			height:0;
+			background-color:$light-gray;
+			-webkit-transition: 1s ease-in-out;
+    			-moz-transition: 1s ease-in-out;
+    			-o-transition: 1s ease-in-out;
+    			transition: 1s ease-in-out;
+		}
+		&.selected{
+
+			.open-btn{
+				transform: rotate(90deg);
+				-webkit-transition: 1s ease-in-out;
+    			-moz-transition: 1s ease-in-out;
+    			-o-transition: 1s ease-in-out;
+    			transition: 1s ease-in-out;
+			}
+
+			.results-expanded{
+				height:400px;
+				-webkit-transition: 1s ease-in-out;
+    			-moz-transition: 1s ease-in-out;
+    			-o-transition: 1s ease-in-out;
+    			transition: 1s ease-in-out;
+			}
+		}
 	}
 }
 
 .results-title{
 
 	font-weight:300;
-	margin-bottom:20px;
+	margin-bottom:18px;
+	font-size:24px;
 }
+
+
 
 .form-control{
 	height:55px;
@@ -113,7 +150,7 @@ header{
 	h2{
 		color:$dark-gray;
 		text-align:center;
-		font-size:24px;
+		font-size:30px;
 		font-weight:300;
 	}
 }
@@ -126,7 +163,7 @@ header{
 	border-top:thin white solid;
 	h2{
 		color:$dark-gray;
-		font-size:24px;
+		font-size:30px;
 		text-align:center;
 		font-weight:300;
 	}
@@ -142,7 +179,7 @@ header{
 		color:$dark-gray;
 		text-align:center;
 		font-weight:300;
-		font-size:24px;
+		font-size:30px;
 	}
 }
 .input-list{

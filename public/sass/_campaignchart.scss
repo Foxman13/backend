@@ -1,0 +1,150 @@
+
+.chartHost {
+    -ms-grid-row: 2;
+
+    display: -ms-flexbox;
+    -ms-flex-direction: column;
+    -ms-flex-pack: start;
+    -ms-flex-align: center;
+
+
+}
+
+.campaignChart {
+    display: -ms-grid;
+    -ms-grid-rows: 1fr;
+    -ms-grid-columns: 2fr 1fr;
+    width: 90%;
+    height: auto;
+
+    margin-bottom: 20px;
+    background-color: lightgrey;
+}
+
+.superProgress {
+    -ms-grid-column-align: end;
+    -ms-grid-row-align: center;
+    width: 100%;
+    height: 150px;
+    background-color: white;
+    overflow: hidden;
+    overflow-x: auto;
+}
+
+    .superProgress .surface {
+        width: auto;
+        height: 100%;
+        display: -ms-flexbox;
+        -ms-flex-pack: start;
+        -ms-flex-align: stretch;
+        -ms-flex-direction: row;
+        font: normal 14pt 'Segoe UI';
+        color: white;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+
+    .superProgress .sourceBlock {
+        width: calc(100% - 10px);
+        min-width: 150px;
+        max-width: 100%;
+        height: calc(100% - 30px);
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        display: -ms-grid;
+        -ms-grid-columns: 1fr;
+        -ms-grid-rows: 1fr auto 1fr;
+        background-color: green;
+        transition: opacity ease 400ms, transform ease-out 300ms;
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+        .superProgress .sourceBlock.on {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+
+        .superProgress .sourceBlock .glyph {
+            -ms-grid-row-align: start;
+            -ms-grid-column-align: end;
+            -ms-grid-row-span: 3;
+            margin: 10px;
+            width: 30px;
+            height: 30px;
+            background-image: url('/images/twitter.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.7;
+        }
+
+        .superProgress .sourceBlock .srcText {
+            margin-left: 20px;
+            -ms-grid-row: 2;
+            z-index: 999;
+        }
+
+            .superProgress .sourceBlock .srcText div {
+                margin-bottom: 10px;
+            }
+
+            .superProgress .sourceBlock .srcText .editable {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+
+                .superProgress .sourceBlock .srcText .editable:focus {
+                    background-color: rgba(255, 255, 255, 0.70);
+                    color: green;
+                }
+
+        .superProgress .sourceBlock progress {
+            -ms-grid-row-span: 3;
+            width: 100%;
+            height: 100%;
+            color: rgba(255, 255, 255, 0.40);
+        }
+
+.outBalls {
+    -ms-grid-column: 2;
+    -ms-grid-row-align: center;
+    display: -ms-flexbox;
+    -ms-flex-pack: start;
+    -ms-flex-direction: row;
+}
+
+    .outBalls .ball {
+        width: 100px;
+        height: 100px;
+        border-radius: 50px 50px 50px 50px;
+        background-color: rgba(0, 128, 0, 0.4);
+        margin-left: 20px;
+        display: -ms-grid;
+        -ms-grid-rows: 1fr;
+        -ms-grid-columns: 1fr;
+        color: white;
+        transition: opacity ease 400ms, transform ease-out 300ms;
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+
+
+        .outBalls .ball.on {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .outBalls .ball.active {
+            background-color: yellow;
+        }
+
+        .outBalls .ball div {
+            font-size: 36pt;
+            -ms-grid-column-align: center;
+            -ms-grid-row-align: center;
+        }
+

@@ -91,7 +91,7 @@ $(document).ready(function(){
 
 	var getCampaigns = function(){
 		
-		$.get( "api/campaign", function( data ) {
+		$.get( "/api/campaign", function( data ) {
   			console.log("data")
 		})
 	}

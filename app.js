@@ -10,7 +10,6 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var campaigns = require('./apis/campaigns');
 var sources = require('./apis/sources');
-var notificationTypes = require('./apis/notificationTypes');
 var twitterAggregator = require('./datasources/twitterAggregator.js');
 var app = express();
 
@@ -32,7 +31,6 @@ app.use('/users', users);
 //campaign apis
 app.use('/api/campaign', campaigns);
 app.use('/api/source', sources);
-app.use('/api/notificationtypes', notificationTypes);
 //app.use('/datasources/twitter', twitterAggregator);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

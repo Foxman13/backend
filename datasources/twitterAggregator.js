@@ -49,9 +49,11 @@ router.use('/auth', function (req, res) {
 });
 
 router.use('/auth/callback', function (req, res) {
-
+    
     res.render(index, { title: 'Express' });
-})
+});
+
+module.exports = router;
 module.exports.run = function (input, callback) {
     
     if (!input.hashtag) {

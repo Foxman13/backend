@@ -33,7 +33,7 @@ app.use('/users', users);
 app.use('/api/campaign', campaigns);
 app.use('/api/source', sources);
 app.use('/api/notification', notifications);
- 
+app.use('/datasources/twitter', twitterAggregator);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
